@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+}
+
+@layer components {
+  /*============================ -- ============================*/
+  /*---------------- == ----------------*/
+}
+
+/*=============== Syles ===============*/
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/*=============== scrollbar style ===============*/
+
+/* ::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var();
+    border-radius: 20px;
+    border: 3px solid;
+}
+
+.light-theme::-webkit-scrollbar-thumb {
+    border-color: #;
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+    border-color: #;
+}
+
+.light-theme::-webkit-scrollbar-track {
+    background: #;
+}
+
+.dark-theme::-webkit-scrollbar-track {
+    background: #;
+} */
+
+/*=============== End Base ===============*/
