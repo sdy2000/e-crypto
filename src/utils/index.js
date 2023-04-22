@@ -1,2 +1,3 @@
 // // // // Theme // // // //
-export { default as getInitailTheme } from "./theme/getInitailTheme";
+export { default as checkTheme } from "./theme/checkTheme";
+export { default as getInitialTheme } from "./theme/getInitialTheme";

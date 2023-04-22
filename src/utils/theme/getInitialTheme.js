@@ -1,4 +1,4 @@
-const getInitailTheme = () => {
+const getInitialTheme = () => {
   if (typeof window !== "undefined" && window.localStorage) {
     const storedPrefs = window.localStorage.getItem("current-theme");
     if (typeof storedPrefs === "string") {
@@ -10,4 +10,5 @@ const getInitailTheme = () => {
   }
   return "light";
 };
-export default getInitailTheme;
+
+export default getInitialTheme;
