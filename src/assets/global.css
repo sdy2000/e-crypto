@@ -6,8 +6,26 @@
 }
 
 @layer components {
-  /*============================ -- ============================*/
-  /*---------------- == ----------------*/
+  /*============================ Base ============================*/
+  /*--------------- Dark & Light ----------------*/
+  .bg-p {
+    @apply bg-lbp dark:bg-dbp;
+  }
+  .bg-s {
+    @apply bg-lbs dark:bg-dbs;
+  }
+  .bg-ac {
+    @apply bg-accent dark:bg-daccent;
+  }
+  .text-p {
+    @apply text-lfp dark:text-dfp;
+  }
+  .text-s {
+    @apply text-lfs dark:text-dfs;
+  }
+  .text-t {
+    @apply text-lft dark:text-dft;
+  }
 }
 
 /*=============== Syles ===============*/
@@ -45,3 +63,6 @@ body {
 } */
 
 /*=============== End Base ===============*/
+.hidden-nav {
+  transition: 700ms cubic-bezier(1, 0, 0.3, 0.7);
+}

@@ -19,9 +19,12 @@ module.exports = {
         lft: "#52565c",
 
         // Oder
-        accent: "#eebc1d",
-        daccent: "#c89d14",
+        gold: "#eebc1d",
+        dgold: "#c89d14",
         silver: "#949494",
+        dsilver: "#6c6c6c",
+        purple: "#4e41dd",
+        dpurple: "#4e41dd",
 
         // // // Dark Mode // // /
         // Backround
@@ -39,8 +42,8 @@ module.exports = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "1rem",
-          sm: "2rem",
+          DEFAULT: "0.25rem",
+          sm: "0.5rem",
           lg: "4rem",
           xl: "5rem",
           "2xl": "6rem",
