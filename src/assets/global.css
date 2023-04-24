@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.color {
+  color: #d2d2d2;
+}
+
 @layer base {
 }
 
@@ -13,6 +17,9 @@
   }
   .bg-s {
     @apply bg-lbs dark:bg-dbs;
+  }
+  .bg-t {
+    @apply bg-lbt dark:bg-dbt;
   }
   .bg-ac {
     @apply bg-accent dark:bg-daccent;
@@ -36,7 +43,7 @@
     @apply text-xs text-s font-semibold;
   }
   .cyp-info-table li a {
-    @apply text-purple hover:text-lpurple duration-300  mr-3;
+    @apply text-blue hover:text-lblue duration-300  mr-3;
   }
 
   .hidden-bar {

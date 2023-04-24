@@ -9,7 +9,7 @@ module.exports = {
         // Backround
         lbp: "#ffffff",
         lbs: "#f0f0ff",
-        lbh: "#1E2022",
+        lbt: "#d2d2d2",
         // Action
         lap: "#d5e2f1",
         las: "#e7f0f8",
@@ -23,14 +23,14 @@ module.exports = {
         dgold: "#c89d14",
         silver: "#949494",
         dsilver: "#6c6c6c",
-        purple: "#4e41dd",
-        lpurple: "#7e77cf",
+        blue: "#375fd9",
+        lblue: "#6188ff",
 
         // // // Dark Mode // // /
         // Backround
         dbp: "#16171a",
         dbs: "#14161A",
-        dbt: "#131111",
+        dbt: "#323546",
         // Action
         dap: "#d5e2f1",
         das: "#2a2a2a",

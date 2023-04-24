@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconButton } from "../../components";
+import { CustomButton1, IconButton } from "../../components";
 import { BsChevronDown } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -41,7 +41,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
       });
     } else {
       setClickStates({
-        [id]: !false,
+        [id]: true,
       });
     }
   };
@@ -95,6 +95,16 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
           </li>
         ))}
       </ul>
+      <div className="flex flex-col md:flex-row gap-3 px-3">
+        <CustomButton1
+          value="Create an account"
+          bgColor="bg-blue hover:bg-lblue"
+        />
+        <CustomButton1
+          value="Log in"
+          bgColor="bg-t hover:bg-las text-black dark:text-gray-200 dark:hover:bg-lfp"
+        />
+      </div>
     </nav>
   );
 };
