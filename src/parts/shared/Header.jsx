@@ -3,6 +3,7 @@ import { IconButton, ThemeButton } from "../../components";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { HeaderHiddenBar } from "..";
 
 const Header = () => {
   const [isOpenList, setIsOpenList] = useState(false);
@@ -52,6 +53,10 @@ const Header = () => {
             </li>
           </ul>
         </div>
+        <HeaderHiddenBar
+          isOpenList={isOpenList}
+          setIsOpenList={setIsOpenList}
+        />
       </header>
     </>
   );
