@@ -6,6 +6,7 @@ import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import {
   CustomButton1,
+  CustomButton2,
   IconButton,
   SocialBox,
   ThemeButton,
@@ -52,9 +53,6 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
       });
     }
   };
-
-  const subButtonStyle =
-    "bg-dfp dark:bg-lfp hover:bg-lap dark:hover:bg-lfs text-black dark:text-gray-200 rounded-lg";
 
   return (
     <nav
@@ -107,29 +105,32 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
       </ul>
       <div className="flex flex-col md:flex-row gap-3 px-3 my-8">
         <CustomButton1
+          to={"#"}
           value="Create an account"
-          bgColor="bg-blue hover:bg-lblue"
+          style="bg-blue hover:bg-lblue"
         />
         <CustomButton1
+          to={"#"}
           value="Log in"
-          bgColor="bg-t hover:bg-las text-black dark:text-gray-200 dark:hover:bg-lfp"
+          style="bg-t hover:bg-las text-lfp dark:text-gray-200 dark:hover:bg-lfp"
         />
       </div>
-      <div className="flex justify-center items-center gap-3 px-3">
-        <CustomButton1
+      <div className="flex justify-center items-center gap-3 px-4">
+        <CustomButton2
+          to={"#"}
           value="English"
           icon2={<AiOutlineCaretDown />}
-          bgColor={subButtonStyle}
         />
-        <CustomButton1
+        <CustomButton2
+          to={"#"}
           value="USD"
           icon1={<HiCurrencyDollar size={20} className="text-green-500" />}
           icon2={<AiOutlineCaretDown />}
-          bgColor={subButtonStyle}
         />
-        <CustomButton1
+        <CustomButton2
+          to={"#"}
           value={<ThemeButton size={20} />}
-          bgColor={`${subButtonStyle} w-auto px-1 py-[2px] rounded-lg`}
+          style="w-auto py-[2px]"
         />
       </div>
       <div className="mt-12 border-b dark:border-das pb-8 w-full">
