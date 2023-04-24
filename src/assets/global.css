@@ -26,6 +26,34 @@
   .text-t {
     @apply text-lft dark:text-dft;
   }
+
+  /*============================ Header ============================*/
+  /*--------------- Crypto Info  ----------------*/
+  .cyp-info-table {
+    @apply w-full mt-2 overflow-x-scroll whitespace-nowrap scrollbar-hide;
+  }
+  .cyp-info-table li {
+    @apply text-xs text-s font-semibold;
+  }
+  .cyp-info-table li a {
+    @apply text-purple hover:text-lpurple duration-300  mr-3;
+  }
+
+  .hidden-bar {
+    @apply my-6;
+  }
+  .hidden-bar li {
+    @apply w-full py-3 border-b dark:border-das;
+  }
+  .hidden-bar li a {
+    @apply flex justify-between items-center px-3 font-semibold;
+  }
+  .hidden-sub-bar {
+    @apply my-3;
+  }
+  .hidden-sub-bar li {
+    @apply border-none text-sm font-normal;
+  }
 }
 
 /*=============== Syles ===============*/

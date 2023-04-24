@@ -24,7 +24,7 @@ module.exports = {
         silver: "#949494",
         dsilver: "#6c6c6c",
         purple: "#4e41dd",
-        dpurple: "#4e41dd",
+        lpurple: "#7e77cf",
 
         // // // Dark Mode // // /
         // Backround
@@ -58,4 +58,5 @@ module.exports = {
       },
     },
   },
+  plugins: [require("tailwind-scrollbar-hide")],
 };
