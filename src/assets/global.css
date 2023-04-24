@@ -61,6 +61,13 @@
   .hidden-sub-bar li {
     @apply border-none text-sm font-normal;
   }
+
+  .hidden-bar-social {
+    @apply flex justify-center items-center gap-5 text-2xl mx-auto text-s;
+  }
+  .hidden-bar-social li {
+    @apply hover:text-blue duration-300;
+  }
 }
 
 /*=============== Syles ===============*/

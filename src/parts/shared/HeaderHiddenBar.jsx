@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { CustomButton1, IconButton, ThemeButton } from "../../components";
 import { BsChevronDown } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import {
+  CustomButton1,
+  IconButton,
+  SocialBox,
+  ThemeButton,
+} from "../../components";
 
 const categores = [
   {
@@ -126,6 +131,31 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
           value={<ThemeButton size={20} />}
           bgColor={`${subButtonStyle} w-auto px-1 py-[2px] rounded-lg`}
         />
+      </div>
+      <div className="mt-12 border-b dark:border-das pb-8 w-full">
+        <ul className="flex justify-center items-center gap-2 flex-wrap max-w-xs text-s text-sm font-semibold mx-auto ">
+          <li>
+            <Link to="#">Desclaimer</Link>
+          </li>
+          <li>.</li>
+          <li>
+            <Link to="#">Request From</Link>
+          </li>
+          <li>.</li>
+          <li>
+            <Link to="#">Terms of Use</Link>
+          </li>
+          <li>
+            <Link to="#">Privacy</Link>
+          </li>
+          <li>.</li>
+          <li>
+            <Link to="#">About</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="mt-12 w-full">
+        <SocialBox styles={"hidden-bar-social"} />
       </div>
     </nav>
   );
