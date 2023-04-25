@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const CustomButton1 = ({ value, to, style }) => {
+const CustomButton1 = ({ value, to, styles }) => {
   return (
-    <Link to={to} className={`${style} button1`}>
+    <Link to={to} className={`${styles} button1`}>
       {value}
     </Link>
   );

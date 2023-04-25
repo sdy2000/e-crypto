@@ -59,19 +59,23 @@
   }
 
   .hidden-bar {
-    @apply my-6;
+    @apply mb-6;
   }
   .hidden-bar li {
     @apply w-full py-3 border-b dark:border-das;
   }
   .hidden-bar li a {
-    @apply flex justify-between items-center px-3 font-semibold;
+    @apply flex justify-between items-center px-3 font-semibold hover:text-blue duration-300;
   }
+
   .hidden-sub-bar {
     @apply my-3;
   }
   .hidden-sub-bar li {
     @apply border-none text-sm font-normal;
+  }
+  .hidden-sub-bar li a {
+    @apply flex justify-start items-center gap-3 hover:text-blue duration-300;
   }
 
   .hidden-bar-social {
