@@ -46,6 +46,19 @@
     @apply font-bold text-sm py-2 flex justify-center items-center gap-2 shadow-lg w-full duration-300
        bg-f hover:bg-lap dark:hover:bg-lfs text-black dark:text-gray-200 rounded-lg;
   }
+
+  /*--------------- Input ----------------*/
+  /*------- Accounting -------*/
+  .accounting-input-div {
+    @apply flex justify-between items-center bg-s rounded-xl shadow-lg border border-dft dark:border-lft focus:outline-4 hover:border-blue dark:hover:border-blue overflow-hidden duration-300;
+  }
+  .accounting-input-div input {
+    @apply bg-s h-14 py-1 px-4 w-full text-p placeholder-lft dark:placeholder-dft outline-none;
+  }
+  .accounting-input-div svg {
+    @apply text-p hover:scale-110 cursor-pointer duration-300 pr-3;
+  }
+
   /*============================ Header ============================*/
   /*--------------- Crypto Info  ----------------*/
   .cyp-info-table {
