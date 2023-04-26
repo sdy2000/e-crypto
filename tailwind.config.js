@@ -29,7 +29,7 @@ module.exports = {
         // // // Dark Mode // // /
         // Backround
         dbp: "#16171a",
-        dbs: "#14161A",
+        dbs: "#171924",
         dbt: "#323546",
         // Action
         dap: "#d5e2f1",

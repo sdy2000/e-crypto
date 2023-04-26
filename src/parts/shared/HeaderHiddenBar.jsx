@@ -5,7 +5,6 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import {
-  AccountingModal,
   CustomButton1,
   CustomButton2,
   IconButton,
@@ -13,6 +12,7 @@ import {
   ThemeButton,
 } from "../../components";
 import { headerData } from "../../services/fakeData";
+import { Login } from "../../pages";
 
 const categores = headerData;
 
@@ -179,9 +179,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
       </nav>
 
       {isVisibleLoginBox && (
-        <AccountingModal onClose={() => setIsVisibleLoginBox(false)}>
-          Log in page
-        </AccountingModal>
+        <Login onClose={() => setIsVisibleLoginBox(false)} />
       )}
     </>
   );
