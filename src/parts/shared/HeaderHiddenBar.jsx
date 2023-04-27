@@ -13,6 +13,7 @@ import {
 } from "../../components";
 import { headerData } from "../../services/fakeData";
 import { Login, SingUp } from "../../pages";
+import ForgotPassword from "../../pages/accounting/ForgotPassword";
 
 const categores = headerData;
 
@@ -20,6 +21,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
   const [clickStates, setClickStates] = useState({});
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
   const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
+  const [isVisibleForgotPassBox, setIsVisibleForgotPassBox] = useState(false);
 
   const handleOnClick = (id) => {
     if (clickStates[id] === true) {
@@ -180,10 +182,24 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
       </nav>
 
       {isVisibleLoginBox && (
-        <Login onClose={() => setIsVisibleLoginBox(false)} />
+        <Login
+          onClose={() => setIsVisibleLoginBox(false)}
+          onOpen={() => setIsVisibleSignUpBox(true)}
+          openForgot={() => setIsVisibleForgotPassBox(true)}
+        />
       )}
       {isVisibleSignUpBox && (
-        <SingUp onClose={() => setIsVisibleSignUpBox(false)} />
+        <SingUp
+          onClose={() => setIsVisibleSignUpBox(false)}
+          onOpen={() => setIsVisibleLoginBox(true)}
+        />
+      )}
+      {isVisibleForgotPassBox && (
+        <ForgotPassword
+          onClose={() => setIsVisibleForgotPassBox(false)}
+          openLogin={() => setIsVisibleLoginBox(true)}
+          openSingUp={() => setIsVisibleSignUpBox(true)}
+        />
       )}
     </>
   );

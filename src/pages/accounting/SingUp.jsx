@@ -7,7 +7,7 @@ const getFreshLoginModel = () => ({
   password: "",
 });
 
-const SingUp = ({ onClose }) => {
+const SingUp = ({ onClose, onOpen }) => {
   const { values, handleInputChange } = useForm(getFreshLoginModel);
 
   const handleFormSubmit = (e) => {
@@ -25,7 +25,13 @@ const SingUp = ({ onClose }) => {
   return (
     <AccountingModal onClose={onClose}>
       <div className="flex justify-center items-center gap-8 text-2xl text-p mb-14">
-        <button className="font-semibold pb-4 hover:text-t duration-300">
+        <button
+          onClick={() => {
+            onClose();
+            onOpen();
+          }}
+          className="font-semibold pb-4 hover:text-t duration-300"
+        >
           Log In
         </button>
         <button className="font-extrabold border-b-4 border-lblue pb-4 hover:text-t duration-300 ">
