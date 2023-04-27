@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { IconButton, ThemeButton } from "../../components";
+import { CustomButton1, IconButton, ThemeButton } from "../../components";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { HeaderHiddenBar } from "..";
+import { AiOutlineCaretDown } from "react-icons/ai";
+import { HiCurrencyDollar } from "react-icons/hi";
+import { Login, SingUp, ForgotPassword } from "../../pages";
 
 const Header = () => {
   const [isOpenList, setIsOpenList] = useState(false);
+  const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
+  const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
+  const [isVisibleForgotPassBox, setIsVisibleForgotPassBox] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -42,7 +48,7 @@ const Header = () => {
             />
           </div>
         </nav>
-        <div className="container py-1">
+        <div className="container py-1 xl:pb-5 xl:border-b dark:border-das flex justify-center items-center">
           <ul className="cyp-info-table">
             <li>
               Cryptos: <Link to="">23562</Link>
@@ -52,11 +58,77 @@ const Header = () => {
               Dominance: <Link to="">BTC: 45.9% ETH: 19.3%</Link>
             </li>
           </ul>
+          <div className="hidden xl:flex justify-between items-center w-[45%]">
+            <div className="flex justify-center items-center gap-3 border-r dark:border-das">
+              <span className="flex justify-center items-center gap-1 text-p text-sm font-semibold">
+                English
+                <AiOutlineCaretDown />
+              </span>
+              <span className="flex justify-center items-center gap-1 text-p text-sm font-semibold">
+                <HiCurrencyDollar
+                  size={20}
+                  className="text-green-500 bg-white rounded-full"
+                />
+                USD
+                <AiOutlineCaretDown />
+              </span>
+              <ThemeButton size={23} />
+            </div>
+            <div className="flex justify-center items-center gap-3 w-full ml-3">
+              <CustomButton1
+                onClick={() => {
+                  setIsVisibleLoginBox(true);
+                }}
+                value="Log in"
+                styles="text-blue hover:text-lblue border-2 border-blue hover:border-lblue dark:hover:bg-lfp "
+              />
+              <CustomButton1
+                onClick={() => {
+                  setIsVisibleSignUpBox(true);
+                }}
+                to={"#"}
+                value="Sign up"
+                styles="bg-blue hover:bg-lblue"
+              />
+            </div>
+          </div>
         </div>
+        <nav className="container hidden xl:flex justify-between border-b  dark:border-das pb-3">
+          <div className="flex justify-start items-center gap-1">
+            <img
+              className="w-8 h-8 md:w-10 md:h-10"
+              src="/assets/e-icon.png"
+              alt="E icon"
+            />
+            <span className="text-p text-xl md:text-2xl font-bold">Crypto</span>
+          </div>
+          <div className="flex justify-center items-center gap-1 "></div>
+        </nav>
         <HeaderHiddenBar
           isOpenList={isOpenList}
           setIsOpenList={setIsOpenList}
         />
+
+        {isVisibleLoginBox && (
+          <Login
+            onClose={() => setIsVisibleLoginBox(false)}
+            onOpen={() => setIsVisibleSignUpBox(true)}
+            openForgot={() => setIsVisibleForgotPassBox(true)}
+          />
+        )}
+        {isVisibleSignUpBox && (
+          <SingUp
+            onClose={() => setIsVisibleSignUpBox(false)}
+            onOpen={() => setIsVisibleLoginBox(true)}
+          />
+        )}
+        {isVisibleForgotPassBox && (
+          <ForgotPassword
+            onClose={() => setIsVisibleForgotPassBox(false)}
+            openLogin={() => setIsVisibleLoginBox(true)}
+            openSingUp={() => setIsVisibleSignUpBox(true)}
+          />
+        )}
       </header>
     </>
   );

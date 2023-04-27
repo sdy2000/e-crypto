@@ -77,7 +77,7 @@ const SingUp = ({ onClose, onOpen }) => {
           <input type="checkbox" className="w-4 h-4" id="rules" />
           <label className="text-p text-sm font-semibold" htmlFor="rules">
             I agree to{" "}
-            <Link to="#" className="text-blue hover:text-lblue">
+            <Link to="#" className="text-blue hover:text-lblue duration-300">
               rules
             </Link>{" "}
             from ECrypto

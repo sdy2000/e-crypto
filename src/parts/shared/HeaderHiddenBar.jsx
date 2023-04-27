@@ -12,8 +12,7 @@ import {
   ThemeButton,
 } from "../../components";
 import { headerData } from "../../services/fakeData";
-import { Login, SingUp } from "../../pages";
-import ForgotPassword from "../../pages/accounting/ForgotPassword";
+import { Login, SingUp, ForgotPassword } from "../../pages";
 
 const categores = headerData;
 
