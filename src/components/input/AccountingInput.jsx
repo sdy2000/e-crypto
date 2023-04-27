@@ -4,6 +4,7 @@ import { BsEye, BsEyeSlash } from "react-icons/bs";
 const AccountingInput = ({
   type,
   name,
+  id,
   placeholder,
   onChange,
   value,
@@ -16,6 +17,7 @@ const AccountingInput = ({
       <input
         type={isShowPass ? "text" : type}
         name={name}
+        id={id}
         placeholder={placeholder}
         onChange={onChange}
         value={value}

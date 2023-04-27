@@ -12,13 +12,14 @@ import {
   ThemeButton,
 } from "../../components";
 import { headerData } from "../../services/fakeData";
-import { Login } from "../../pages";
+import { Login, SingUp } from "../../pages";
 
 const categores = headerData;
 
 const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
   const [clickStates, setClickStates] = useState({});
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
+  const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
 
   const handleOnClick = (id) => {
     if (clickStates[id] === true) {
@@ -118,7 +119,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
           <div className="flex flex-col md:flex-row gap-3 px-3 my-8">
             <CustomButton1
               onClick={() => {
-                console.log("hello");
+                setIsVisibleSignUpBox(true);
               }}
               to={"#"}
               value="Create an account"
@@ -180,6 +181,9 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
 
       {isVisibleLoginBox && (
         <Login onClose={() => setIsVisibleLoginBox(false)} />
+      )}
+      {isVisibleSignUpBox && (
+        <SingUp onClose={() => setIsVisibleSignUpBox(false)} />
       )}
     </>
   );

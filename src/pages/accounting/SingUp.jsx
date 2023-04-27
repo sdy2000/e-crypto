@@ -7,7 +7,7 @@ const getFreshLoginModel = () => ({
   password: "",
 });
 
-const Login = ({ onClose }) => {
+const SingUp = ({ onClose }) => {
   const { values, handleInputChange } = useForm(getFreshLoginModel);
 
   const handleFormSubmit = (e) => {
@@ -22,14 +22,13 @@ const Login = ({ onClose }) => {
   // TODO : Add Validation for input
   //
   //
-
   return (
     <AccountingModal onClose={onClose}>
       <div className="flex justify-center items-center gap-8 text-2xl text-p mb-14">
-        <button className="font-extrabold border-b-4 border-lblue pb-4 hover:text-t duration-300">
+        <button className="font-semibold pb-4 hover:text-t duration-300">
           Log In
         </button>
-        <button className="font-semibold pb-4 hover:text-t duration-300">
+        <button className="font-extrabold border-b-4 border-lblue pb-4 hover:text-t duration-300 ">
           Sing Up
         </button>
       </div>
@@ -57,9 +56,6 @@ const Login = ({ onClose }) => {
             <label className="text-p text-sm font-semibold" htmlFor="password">
               Password
             </label>
-            <Link className="text-t hover:text-blue duration-300" to="#">
-              Forgot password?
-            </Link>
           </div>
           <AccountingInput
             type={"password"}
@@ -71,13 +67,23 @@ const Login = ({ onClose }) => {
             hasIcon={true}
           />
         </div>
+        <div className="flex justify-start gap-2 w-full">
+          <input type="checkbox" className="w-4 h-4" id="rules" />
+          <label className="text-p text-sm font-semibold" htmlFor="rules">
+            I agree to{" "}
+            <Link to="#" className="text-blue hover:text-lblue">
+              rules
+            </Link>{" "}
+            from ECrypto
+          </label>
+        </div>
         <input
           className="button1 bg-blue rounded-lg py-3 text-lg font-semibold mb-6 hover:bg-lblue duration-300"
           type="submit"
-          value="Log In"
+          value="Create an account"
         />
       </form>
     </AccountingModal>
   );
 };
-export default Login;
+export default SingUp;
