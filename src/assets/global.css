@@ -97,6 +97,13 @@
   .hidden-bar-social li {
     @apply hover:text-blue duration-300;
   }
+
+  .header-bar {
+    @apply flex justify-center items-center gap-3;
+  }
+  .header-bar li {
+    @apply font-bold text-p hover:text-t duration-300;
+  }
 }
 
 /*=============== Syles ===============*/
