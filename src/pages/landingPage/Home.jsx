@@ -1,4 +1,6 @@
+import { TopBar } from "../../parts";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <TopBar />;
 };
 export default Home;
