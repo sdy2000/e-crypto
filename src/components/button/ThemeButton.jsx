@@ -1,18 +1,18 @@
 import React from "react";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { IconButton } from "..";
-import { useStateTheme } from "../../store/hooks/useStateContext";
+import { useStateContext } from "../../store";
 
 const ThemeButton = ({ size = 25 }) => {
-  const { theme, setTheme } = useStateTheme();
+  const { context, setContext } = useStateContext();
 
   const chengeTheme = () => {
-    setTheme({
-      theme: theme.theme === "dark" ? "light" : "dark",
+    setContext({
+      theme: context.theme === "dark" ? "light" : "dark",
     });
   };
 
-  return theme.theme === "light" ? (
+  return context.theme === "light" ? (
     <span onClick={chengeTheme}>
       <IconButton value={<BsSunFill size={size} />} />
     </span>

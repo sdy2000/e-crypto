@@ -3,29 +3,32 @@ import { checkTheme, getInitialTheme } from "../../utils";
 
 export const stateContext = createContext();
 
-export const getFreshTheme = () => {
-  if (localStorage.getItem("theme") === null) {
+export const getFreshContext = () => {
+  if (localStorage.getItem("context") === null) {
     localStorage.setItem(
-      "theme",
+      "context",
       JSON.stringify({
+        userId: 0,
+        userName: "",
+        currency: "USD",
         theme: getInitialTheme(),
       })
     );
   }
 
-  return JSON.parse(localStorage.getItem("theme"));
+  return JSON.parse(localStorage.getItem("context"));
 };
 
 const ContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(getFreshTheme());
+  const [context, setContext] = useState(getFreshContext());
 
   useEffect(() => {
-    checkTheme(theme.theme);
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme]);
+    checkTheme(context.theme);
+    localStorage.setItem("context", JSON.stringify(context));
+  }, [context]);
 
   return (
-    <stateContext.Provider value={{ theme, setTheme }}>
+    <stateContext.Provider value={{ context, setContext }}>
       {children}
     </stateContext.Provider>
   );

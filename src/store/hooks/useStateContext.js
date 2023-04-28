@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { stateContext } from "../context/ContextProvider";
 
-export function useStateTheme() {
-  const { theme, setTheme } = useContext(stateContext);
+const useStateContext = () => {
+  const { context, setContext } = useContext(stateContext);
 
   return {
-    theme,
-    setTheme: (obj) => {
-      setTheme({ ...setTheme, ...obj });
+    context,
+    setContext: (obj) => {
+      setContext({ ...context, ...obj });
     },
   };
-}
+};
+
+export default useStateContext;
