@@ -11,6 +11,7 @@ export const getFreshContext = () => {
         userId: 0,
         userName: "",
         currency: "USD",
+        language: "English",
         theme: getInitialTheme(),
       })
     );

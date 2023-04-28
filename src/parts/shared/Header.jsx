@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { CustomButton1, IconButton, ThemeButton } from "../../components";
+import {
+  CurrencyModal,
+  CustomButton1,
+  IconButton,
+  ThemeButton,
+} from "../../components";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
@@ -11,9 +16,12 @@ import { Login, SingUp, ForgotPassword } from "../../pages";
 
 const Header = () => {
   const [isOpenList, setIsOpenList] = useState(false);
+
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
   const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
   const [isVisibleForgotPassBox, setIsVisibleForgotPassBox] = useState(false);
+
+  const [isVisibleCurrency, setIsVisibleCurrency] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -61,18 +69,23 @@ const Header = () => {
           </ul>
           <div className="hidden xl:flex justify-between items-center w-[45%]">
             <div className="flex justify-center items-center gap-3 border-r dark:border-das">
-              <span className="flex justify-center items-center gap-1 text-p text-sm font-semibold">
+              <button className="flex justify-center items-center gap-1 text-p text-sm font-semibold">
                 English
                 <AiOutlineCaretDown />
-              </span>
-              <span className="flex justify-center items-center gap-1 text-p text-sm font-semibold">
+              </button>
+              <button
+                onClick={() => {
+                  setIsVisibleCurrency(true);
+                }}
+                className="flex justify-center items-center gap-1 text-p text-sm font-semibold"
+              >
                 <HiCurrencyDollar
                   size={20}
                   className="text-green-500 bg-white rounded-full"
                 />
                 USD
                 <AiOutlineCaretDown />
-              </span>
+              </button>
               <ThemeButton size={23} />
             </div>
             <div className="flex justify-center items-center gap-3 w-full ml-3">
@@ -169,6 +182,9 @@ const Header = () => {
             openLogin={() => setIsVisibleLoginBox(true)}
             openSingUp={() => setIsVisibleSignUpBox(true)}
           />
+        )}
+        {isVisibleCurrency && (
+          <CurrencyModal onClose={() => setIsVisibleCurrency(false)} />
         )}
       </header>
     </>

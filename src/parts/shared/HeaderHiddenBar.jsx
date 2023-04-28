@@ -5,6 +5,7 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import {
+  CurrencyModal,
   CustomButton1,
   CustomButton2,
   IconButton,
@@ -13,14 +14,19 @@ import {
 } from "../../components";
 import { headerData } from "../../services/fakeData";
 import { Login, SingUp, ForgotPassword } from "../../pages";
+import { useStateContext } from "../../store";
 
 const categores = headerData;
 
 const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
+  const { context } = useStateContext();
   const [clickStates, setClickStates] = useState({});
+
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
   const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
   const [isVisibleForgotPassBox, setIsVisibleForgotPassBox] = useState(false);
+
+  const [isVisibleCurrency, setIsVisibleCurrency] = useState(false);
 
   const handleOnClick = (id) => {
     if (clickStates[id] === true) {
@@ -142,7 +148,10 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
             />
             <CustomButton2
               to={"#"}
-              value="USD"
+              onClick={() => {
+                setIsVisibleCurrency(true);
+              }}
+              value={context.currency}
               icon1={<HiCurrencyDollar size={20} className="text-green-500" />}
               icon2={<AiOutlineCaretDown />}
             />
@@ -199,6 +208,10 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
           openLogin={() => setIsVisibleLoginBox(true)}
           openSingUp={() => setIsVisibleSignUpBox(true)}
         />
+      )}
+
+      {isVisibleCurrency && (
+        <CurrencyModal onClose={() => setIsVisibleCurrency(false)} />
       )}
     </>
   );
