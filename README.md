@@ -1,3 +1,18 @@
+# FNews Tracker with React JS, TailwindCss
+
+## Demo
+
+#### Here is a working live demo : https://e-cryptoo.netlify.app/
+
+## Built with
+
+- [React JS](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Made By [sdy2000](https://www.linkedin.com/in/sdy2000/)
+
+In Linkedin [sdy2000](https://github.com/sdy2000)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +20,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Installing the required package to run the project
 
 ### `npm start`
 
