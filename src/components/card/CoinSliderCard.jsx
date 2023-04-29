@@ -10,7 +10,7 @@ const CoinSliderCard = ({ coin }) => {
     >
       <img className="h-16 w-16" src={coin.image} alt={coin.name} />
       <div className="flex justify-center items-center gap-2">
-        <span className="text-p font-semibold">{coin?.symbol}</span>
+        <span className="text-dfp font-semibold">{coin?.symbol}</span>
         <span
           className={`${profit ? "text-green-700" : "text-red-800"} text-xs`}
         >
@@ -18,7 +18,7 @@ const CoinSliderCard = ({ coin }) => {
           {coin?.price_change_percentage_24h?.toFixed(2)}%
         </span>
       </div>
-      <span className="font-bold text-p">
+      <span className="font-bold text-dfp">
         {currencyNumber(coin?.current_price.toFixed(2))}
       </span>
     </Link>
