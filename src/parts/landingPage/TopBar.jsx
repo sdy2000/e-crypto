@@ -3,6 +3,8 @@ import WaterWave from "react-water-wave";
 import { TrendingCoins } from "../../services/api/apiFromCoinGeko";
 import { useStateContext } from "../../store";
 import { useEffect, useState } from "react";
+import AliceCarousel from "react-alice-carousel";
+import { CoinSliderCard } from "../../components";
 
 const TopBar = () => {
   const { context } = useStateContext();
@@ -16,6 +18,10 @@ const TopBar = () => {
     };
     fetchTrendingCoins();
   }, [context]);
+
+  const items = trending.map((coin) => {
+    return <CoinSliderCard coin={coin} />;
+  });
 
   return (
     <div className="w-full h-72">
@@ -34,8 +40,24 @@ const TopBar = () => {
             <h3 className="text-dft text-sm text-center">
               Get All The Info Regarding Your Favorite Crypto Currency
             </h3>
-            <div className="overflow-x-scroll whitespace-nowrap scrollbar-hide">
-              <div className="flex flex-col justify-center items-center"></div>
+            <div className="mt-8 w-full">
+              <AliceCarousel
+                mouseTracking
+                infinite
+                autoPlayInterval={1000}
+                animationDuration={1500}
+                disableDotsControls
+                disableButtonsControls
+                responsive={{
+                  0: { items: 2 },
+                  550: { items: 3 },
+                  650: { items: 4 },
+                  768: { items: 5 },
+                  1024: { items: 6 },
+                }}
+                autoPlay
+                items={items}
+              />
             </div>
           </div>
         )}

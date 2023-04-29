@@ -13,3 +13,6 @@ export { default as CurrencyModal } from "./modal/CurrencyModal";
 
 // // // // Input // // // //
 export { default as AccountingInput } from "./input/AccountingInput";
+
+// // // // Card // // // //
+export { default as CoinSliderCard } from "./card/CoinSliderCard";
