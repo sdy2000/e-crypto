@@ -16,3 +16,6 @@ export { default as AccountingInput } from "./input/AccountingInput";
 
 // // // // Card // // // //
 export { default as CoinSliderCard } from "./card/CoinSliderCard";
+
+// // // // Card // // // //
+export { default as CurrencyInfoTable } from "./table/CurrencyInfoTable";

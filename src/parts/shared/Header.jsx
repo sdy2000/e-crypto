@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  CurrencyInfoTable,
   CurrencyModal,
   CustomButton1,
   IconButton,
@@ -58,15 +59,7 @@ const Header = () => {
           </div>
         </nav>
         <div className="container py-1 xl:pb-5 xl:border-b dark:border-das flex justify-center items-center">
-          <ul className="cyp-info-table">
-            <li>
-              Cryptos: <Link to="">23562</Link>
-              Exchanges: <Link to="">619</Link>
-              Market Cap: <Link to=""> $1,163,832,895,285</Link>
-              24h Vol: <Link to="">$30,201,677,427</Link>
-              Dominance: <Link to="">BTC: 45.9% ETH: 19.3%</Link>
-            </li>
-          </ul>
+          <CurrencyInfoTable />
           <div className="hidden xl:flex justify-between items-center w-[45%]">
             <div className="flex justify-center items-center gap-3 border-r dark:border-das">
               <button className="flex justify-center items-center gap-1 text-p text-sm font-semibold">

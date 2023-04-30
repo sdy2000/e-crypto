@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .color {
-  color: #171924;
+  color: #3b82f680;
 }
 
 @layer base {
@@ -68,7 +68,7 @@
     @apply text-xs text-s font-semibold;
   }
   .cyp-info-table li a {
-    @apply text-blue hover:text-lblue duration-300  mr-3;
+    @apply text-blue hover:text-lblue duration-300 mr-2;
   }
 
   .hidden-bar {
