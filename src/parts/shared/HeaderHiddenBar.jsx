@@ -12,7 +12,7 @@ import {
   SocialBox,
   ThemeButton,
 } from "../../components";
-import { headerData } from "../../services/fakeData";
+import { headerData } from "../../services/fake/fakeData";
 import { Login, SingUp, ForgotPassword } from "../../pages";
 import { useStateContext } from "../../store";
 

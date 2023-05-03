@@ -6,29 +6,43 @@ import { currencyNumber } from "../../utils";
 
 const CurrencyInfoTable = () => {
   const [currencyInfo, setCurrencyInfo] = useState([]);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchTrendingCoins = async () => {
-      const { data } = await axios.get(CurrencyInfo());
-
-      setCurrencyInfo(data.data);
+      await axios
+        .get(CurrencyInfo())
+        .then((data) => {
+          setCurrencyInfo(data.data.data);
+        })
+        .catch((err) => {
+          setError(err);
+        });
     };
     fetchTrendingCoins();
   }, []);
-  console.log(currencyInfo.total_volume?.usd);
+  // Log Error
+  error && console.log(error);
   return (
     <ul className="cyp-info-table">
       <li>
-        Cryptos: <Link to="">{currencyInfo.active_cryptocurrencies}</Link>
+        Cryptos:{" "}
+        <Link to="">
+          {currencyInfo.active_cryptocurrencies &&
+            currencyNumber(currencyInfo.active_cryptocurrencies)}
+        </Link>
         Exchanges: <Link to="">{currencyInfo.markets}</Link>
         Market Cap:{" "}
         <Link to="">
-          {" "}
-          ${currencyNumber(currencyInfo.total_market_cap?.usd.toFixed(0))}
+          $
+          {currencyInfo.total_market_cap?.usd &&
+            currencyNumber(currencyInfo.total_market_cap?.usd.toFixed(0))}
         </Link>
         24h Vol:{" "}
         <Link to="">
-          ${currencyNumber(currencyInfo.total_volume?.usd.toFixed(0))}
+          $
+          {currencyInfo.total_volume?.usd &&
+            currencyNumber(currencyInfo.total_volume?.usd.toFixed(0))}
         </Link>
         Dominance:{" "}
         <Link to="">

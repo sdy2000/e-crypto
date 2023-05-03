@@ -14,7 +14,7 @@ const CoinSliderCard = ({ coin }) => {
         <span
           className={`${profit ? "text-green-700" : "text-red-800"} text-xs`}
         >
-          {profit & "+"}
+          {profit && "+"}
           {coin?.price_change_percentage_24h?.toFixed(2)}%
         </span>
       </div>

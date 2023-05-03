@@ -20,7 +20,7 @@ const TopBar = () => {
   }, [context]);
 
   const items = trending.map((coin) => {
-    return <CoinSliderCard coin={coin} />;
+    return coin && <CoinSliderCard coin={coin} />;
   });
 
   return (
