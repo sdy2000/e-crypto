@@ -4,24 +4,38 @@ import { TrendingCoins } from "../../services/api/apiFromCoinGeko";
 import { useStateContext } from "../../store";
 import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
-import { CoinSliderCard } from "../../components";
+import { CoinSliderCard, CoinsBannerLoader } from "../../components";
 
 const TopBar = () => {
   const { context } = useStateContext();
+
   const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   useEffect(() => {
     const fetchTrendingCoins = async () => {
-      const { data } = await axios.get(TrendingCoins(context.currency));
-
-      setTrending(data);
+      await axios
+        .get(TrendingCoins(context.currency))
+        .then((val) => {
+          setTrending(val.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(true);
+        });
     };
     fetchTrendingCoins();
-  }, [context]);
+  }, [context.currency]);
 
-  const items = trending.map((coin) => {
-    return coin && <CoinSliderCard coin={coin} />;
-  });
+  const items = !loading
+    ? trending.map((coin) => {
+        return coin && <CoinSliderCard coin={coin} />;
+      })
+    : x.map(() => {
+        return <CoinsBannerLoader />;
+      });
 
   return (
     <div className="w-full h-72">
