@@ -104,6 +104,30 @@
   .header-bar li {
     @apply font-bold text-p hover:text-t duration-300;
   }
+
+  /*============================ Content ============================*/
+  /*--------------- Coins Table  ----------------*/
+  .coins-table {
+    @apply w-full;
+  }
+  .coins-table thead {
+    @apply text-p py-3 font-extrabold;
+  }
+  .coins-table tbody {
+    @apply text-s font-bold;
+  }
+  .coins-table .t-right {
+    @apply text-right;
+  }
+  .coins-table .t-center {
+    @apply text-center px-3;
+  }
+  .coins-table .t-left {
+    @apply text-left;
+  }
+  .coins-table .t-left div {
+    @apply flex justify-start items-center gap-1 pl-3;
+  }
 }
 
 /*=============== Syles ===============*/

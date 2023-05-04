@@ -34,8 +34,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-p py-3">
-        <nav className="container flex justify-between border-b  dark:border-das pb-3 xl:hidden">
+      <header className="max-w-[1440px] mx-auto px-12 bg-p py-3">
+        <nav className="w-full flex justify-between border-b  dark:border-das pb-3 xl:hidden">
           <div className="flex justify-start items-center gap-1">
             <img
               className="w-8 h-8 md:w-10 md:h-10"
@@ -58,7 +58,7 @@ const Header = () => {
             />
           </div>
         </nav>
-        <div className="container py-1 xl:pb-5 xl:border-b dark:border-das flex justify-center items-center">
+        <div className="w-full py-1 xl:pb-5 xl:border-b dark:border-das flex justify-center items-center">
           <CurrencyInfoTable />
           <div className="hidden xl:flex justify-between items-center w-[45%]">
             <div className="flex justify-center items-center gap-3 border-r dark:border-das">
@@ -100,7 +100,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <nav className="container hidden xl:flex justify-between py-3">
+        <nav className="w-full hidden xl:flex justify-between py-3">
           <div className="flex justify-start items-center gap-4">
             <div className="flex justify-start items-center gap-1">
               <img
