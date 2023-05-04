@@ -28,9 +28,16 @@ const CoinsTBodyTable = () => {
     };
     fetchCoins();
   }, [context.currency]);
+  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <tbody>
-      {loading && <CoinsTableLoader />}
+      {loading && (
+        <>
+          {x.map((num, idx) => (
+            <CoinsTableLoader key={idx} />
+          ))}
+        </>
+      )}
       {coins &&
         coins.map((coin) => {
           let profit = coin.price_change_percentage_24h >= 0;
@@ -45,15 +52,22 @@ const CoinsTBodyTable = () => {
                 </button>
               </td>
               <td className="t-center">
-                <span className="text-start w-full">
+                <span className="hidden sm:table-cell text-start w-full">
                   {coin.market_cap_rank}
                 </span>
               </td>
               <td className="t-left">
                 <div>
                   <img className="w-8 h-8" src={coin.image} alt="coin.id" />
-                  <span>{capitalize(coin.id)} </span>
-                  <span>{coin.symbol.toUpperCase()}</span>
+                  <div className="flex flex-col sm:flex-row">
+                    <span>{capitalize(coin.id)} </span>
+                    <span className="w-full">
+                      <span className="rounded-md bg-t px-1 shadow-lg mr-1 sm:hidden text-start">
+                        {coin.market_cap_rank}
+                      </span>
+                      {coin.symbol.toUpperCase()}
+                    </span>
+                  </div>
                 </div>
               </td>
               <td className="t-right">
@@ -62,18 +76,18 @@ const CoinsTBodyTable = () => {
               <td
                 className={`${
                   profit ? "text-green-500" : "text-red-500"
-                } t-right`}
+                } t-right  hidden xs:table-cell`}
               >
                 {profit && "+"}
                 {coin?.price_change_percentage_24h?.toFixed(2)}%
               </td>
-              <td className="t-right">
+              <td className="t-right  hidden md:table-cell">
                 $ {currencyNumber(coin.market_cap.toFixed(2))}
               </td>
-              <td className="t-right">
+              <td className="t-right  hidden lg:table-cell">
                 $ {currencyNumber(coin.market_cap_change_24h.toFixed(2))}
               </td>
-              <td className="t-right">
+              <td className="t-right  hidden xl:table-cell">
                 {currencyNumber(coin.circulating_supply.toFixed(0))}{" "}
                 {coin.symbol.toUpperCase()}
               </td>

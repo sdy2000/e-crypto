@@ -108,7 +108,7 @@
   /*============================ Content ============================*/
   /*--------------- Coins Table  ----------------*/
   .coins-table {
-    @apply w-full;
+    @apply w-full whitespace-nowrap;
   }
   .coins-table thead tr {
     @apply text-p font-extrabold border-t dark:border-lfp h-16;
@@ -123,13 +123,13 @@
     @apply text-right;
   }
   .coins-table .t-center {
-    @apply text-center px-3;
+    @apply text-center px-1 md:px-3;
   }
   .coins-table .t-left {
     @apply text-left;
   }
   .coins-table .t-left div {
-    @apply flex justify-start items-center gap-1 pl-3;
+    @apply flex justify-start items-center gap-1 pl-1 md:pl-3;
   }
 }
 
