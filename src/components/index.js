@@ -19,4 +19,7 @@ export { default as CoinSliderCard } from "./card/CoinSliderCard";
 
 // // // // Table // // // //
 export { default as CurrencyInfoTable } from "./table/CurrencyInfoTable";
-export { default as CoinsTable } from "./table/CoinsTable";
+// export { default as CoinsTable } from "../parts/landingPage/CoinsTable";
+
+// // // // Loader // // // //
+export { default as CoinsTableLoader } from "./loader/CoinsTableLoader";

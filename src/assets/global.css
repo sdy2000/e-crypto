@@ -110,11 +110,14 @@
   .coins-table {
     @apply w-full;
   }
-  .coins-table thead {
-    @apply text-p py-3 font-extrabold;
+  .coins-table thead tr {
+    @apply text-p font-extrabold border-t dark:border-lfp h-16;
   }
   .coins-table tbody {
     @apply text-s font-bold;
+  }
+  .coins-table tbody tr {
+    @apply border-t dark:border-lfp h-24 hover:bg-lbt dark:hover:bg-dbt cursor-pointer duration-300;
   }
   .coins-table .t-right {
     @apply text-right;
