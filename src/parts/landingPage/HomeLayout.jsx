@@ -3,10 +3,10 @@ import { Header } from "..";
 
 const HomeLayout = () => {
   return (
-    <>
+    <div className="bg-s">
       <Header />
       <Outlet />
-    </>
+    </div>
   );
 };
 export default HomeLayout;
