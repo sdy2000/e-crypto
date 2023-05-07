@@ -14,19 +14,16 @@ const CoinsTBodyTable = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCoins = async () => {
-      await axios
-        .get(CoinList(context.currency))
-        .then((val) => {
-          setCoins(val.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(true);
-        });
-    };
-    fetchCoins();
+    axios
+      .get(CoinList(context.currency))
+      .then((val) => {
+        setCoins(val.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(true);
+      });
   }, [context.currency]);
   const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
