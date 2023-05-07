@@ -1,5 +1,5 @@
 // // // // Layouts // // // //
-export { default as HomeLayout } from "./landingPage/HomeLayout";
+export { default as HomeLayout } from "./shared/HomeLayout";
 
 // // // // Shared // // // //
 export { default as Header } from "./shared/Header";

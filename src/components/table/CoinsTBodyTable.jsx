@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { CoinList } from "../../services/api/apiFromCoinGeko";
 import { capitalize, currencyNumber } from "../../utils";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CoinsTBodyTable = ({ props }) => {
   const { context } = useStateContext();
@@ -55,29 +56,35 @@ const CoinsTBodyTable = ({ props }) => {
                 </span>
               </td>
               <td className="t-left">
-                <div>
-                  <img className="w-8 h-8" src={coin.image} alt="coin.id" />
-                  <div className="flex flex-col sm:flex-row">
-                    <span>{capitalize(coin.id)} </span>
-                    <span className="w-full">
-                      <span className="rounded-md bg-t px-1 shadow-lg mr-1 sm:hidden text-start">
-                        {coin.market_cap_rank}
+                <Link to={`/coin/${coin.id}`} key={coin.id}>
+                  <div>
+                    <img className="w-8 h-8" src={coin.image} alt="coin.id" />
+                    <div className="flex flex-col sm:flex-row">
+                      <span>{capitalize(coin.id)} </span>
+                      <span className="w-full">
+                        <span className="rounded-md bg-t px-1 shadow-lg mr-1 sm:hidden text-start">
+                          {coin.market_cap_rank}
+                        </span>
+                        {coin.symbol.toUpperCase()}
                       </span>
-                      {coin.symbol.toUpperCase()}
-                    </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </td>
               <td className="t-right">
-                $ {currencyNumber(coin.current_price?.toFixed(2))}
+                <Link to={`/coin/${coin.id}`} key={coin.id}>
+                  $ {currencyNumber(coin.current_price?.toFixed(2))}
+                </Link>
               </td>
               <td
                 className={`${
                   profit ? "text-green-500" : "text-red-500"
                 } t-right  hidden xs:table-cell`}
               >
-                {profit && "+"}
-                {coin?.price_change_percentage_24h?.toFixed(2)}%
+                <Link to={`/coin/${coin.id}`} key={coin.id}>
+                  {profit && "+"}
+                  {coin?.price_change_percentage_24h?.toFixed(2)}%
+                </Link>
               </td>
               <td className="t-right  hidden md:table-cell">
                 $ {currencyNumber(coin.market_cap?.toFixed(2))}

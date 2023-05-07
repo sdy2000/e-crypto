@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomeLayout } from "./parts";
-import { Home } from "./pages";
+import { CoinPage, Home } from "./pages";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/coin/:id" element={<CoinPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
