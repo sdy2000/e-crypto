@@ -24,3 +24,6 @@ export { default as CoinsTBodyTable } from "./table/CoinsTBodyTable";
 // // // // Loader // // // //
 export { default as CoinsBannerLoader } from "./loader/CoinsBannerLoader";
 export { default as CoinsTableLoader } from "./loader/CoinsTableLoader";
+
+// // // // Pagination // // // //
+export { default as CoinsTablePagination } from "./pagination/CoinsTablePagination";

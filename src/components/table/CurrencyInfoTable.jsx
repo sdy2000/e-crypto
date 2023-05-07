@@ -9,17 +9,14 @@ const CurrencyInfoTable = () => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    const fetchTrendingCoins = async () => {
-      await axios
-        .get(CurrencyInfo())
-        .then((data) => {
-          setCurrencyInfo(data.data.data);
-        })
-        .catch((err) => {
-          setError(err);
-        });
-    };
-    fetchTrendingCoins();
+    axios
+      .get(CurrencyInfo())
+      .then((data) => {
+        setCurrencyInfo(data.data.data);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
   // Log Error
   error && console.log(error);
