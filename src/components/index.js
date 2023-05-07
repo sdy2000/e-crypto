@@ -27,3 +27,6 @@ export { default as CoinsTableLoader } from "./loader/CoinsTableLoader";
 
 // // // // Pagination // // // //
 export { default as CoinsTablePagination } from "./pagination/CoinsTablePagination";
+
+// // // // Bar // // // //
+export { default as TopMapBar } from "./bar/TopMapBar";

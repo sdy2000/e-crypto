@@ -131,6 +131,15 @@
   .coins-table .t-left div {
     @apply flex justify-start items-center gap-1 pl-1 md:pl-3;
   }
+
+  /*============================ Coin Page ============================*/
+  /*--------------- Coins Table  ----------------*/
+  .map-top-var {
+    @apply flex justify-start items-center gap-2 text-t text-sm font-bold;
+  }
+  .map-top-var a {
+    @apply hover:underline;
+  }
 }
 
 /*=============== Syles ===============*/
