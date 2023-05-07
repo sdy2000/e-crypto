@@ -18,10 +18,10 @@ const CoinsTablePagination = ({ props }) => {
       });
   }, []);
   const pageCount = Math.ceil(coinsCount / props.perPage);
-  const handlePageClick = (e) => {
-    props.setPage(e.selected);
+  const handlePageClick = ({ selected }) => {
+    props.setPage(selected + 1);
   };
-  console.log(props.page + 1);
+  //   console.log(props.page);
   return (
     <>
       <ReactPaginate
@@ -33,17 +33,17 @@ const CoinsTablePagination = ({ props }) => {
         }
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
-        pageCount={pageCount || 10}
+        pageCount={pageCount || 100}
         previousLabel={
           <span>
             <BsChevronLeft />
           </span>
         }
         containerClassName="flex justify-center items-center gap-1 text-p font-bold"
-        pageClassName="block border-solid hover:bg-t w-10 h-10 flex justify-center items-center rounded-lg duration-300"
-        activeClassName="bg-blue text-dfp"
+        pageClassName="block hover:bg-t w-10 h-10 flex justify-center items-center rounded-lg duration-300"
+        activeClassName="bg-blue hover:bg-lblue text-dfp"
       />
-      <span className="flex justify-center items-center gap-3 text-p duration-300"></span>
+      <span className="inline-block"></span>
     </>
   );
 };

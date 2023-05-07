@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CoinsTBodyTable, CoinsTablePagination } from "../../components";
 
 const CoinsTable = () => {
-  const [perPage, setPerPage] = useState(100);
+  const [perPage, setPerPage] = useState(10);
   const [page, setPage] = useState(1);
   return (
     <>
@@ -22,7 +22,7 @@ const CoinsTable = () => {
               </th>
             </tr>
           </thead>
-          <CoinsTBodyTable />
+          <CoinsTBodyTable props={{ perPage, page }} />
         </table>
       </div>
       <CoinsTablePagination props={{ perPage, setPerPage, page, setPage }} />

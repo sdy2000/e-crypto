@@ -7,7 +7,7 @@ import { CoinList } from "../../services/api/apiFromCoinGeko";
 import { capitalize, currencyNumber } from "../../utils";
 import axios from "axios";
 
-const CoinsTBodyTable = () => {
+const CoinsTBodyTable = ({ props }) => {
   const { context } = useStateContext();
 
   const [coins, setCoins] = useState([]);
@@ -15,7 +15,7 @@ const CoinsTBodyTable = () => {
 
   useEffect(() => {
     axios
-      .get(CoinList(context.currency))
+      .get(CoinList(context.currency, props.perPage, props.page))
       .then((val) => {
         setCoins(val.data);
         setLoading(false);
@@ -24,8 +24,9 @@ const CoinsTBodyTable = () => {
         console.log(err);
         setLoading(true);
       });
-  }, [context.currency]);
+  }, [context.currency, props]);
   const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
     <tbody>
       {loading && (
@@ -68,7 +69,7 @@ const CoinsTBodyTable = () => {
                 </div>
               </td>
               <td className="t-right">
-                $ {currencyNumber(coin.current_price.toFixed(2))}
+                $ {currencyNumber(coin.current_price?.toFixed(2))}
               </td>
               <td
                 className={`${
@@ -79,13 +80,13 @@ const CoinsTBodyTable = () => {
                 {coin?.price_change_percentage_24h?.toFixed(2)}%
               </td>
               <td className="t-right  hidden md:table-cell">
-                $ {currencyNumber(coin.market_cap.toFixed(2))}
+                $ {currencyNumber(coin.market_cap?.toFixed(2))}
               </td>
               <td className="t-right  hidden lg:table-cell">
-                $ {currencyNumber(coin.market_cap_change_24h.toFixed(2))}
+                $ {currencyNumber(coin.market_cap_change_24h?.toFixed(2))}
               </td>
               <td className="t-right  hidden xl:table-cell">
-                {currencyNumber(coin.circulating_supply.toFixed(0))}{" "}
+                {currencyNumber(coin.circulating_supply?.toFixed(0))}{" "}
                 {coin.symbol.toUpperCase()}
               </td>
             </tr>
