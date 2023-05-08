@@ -21,8 +21,15 @@ const CoinPage = () => {
 
   console.log(coin);
   return (
-    <div className="container">
-      <TopMapBar category={"Coins"} id={id} />
+    <div className="container flex justify-between items-center">
+      <div className="flex flex-col justify-start">
+        <div className="">
+          <TopMapBar category={"Coins"} id={id} />
+          <div className="flex justify-start items-center gap-2"></div>
+        </div>
+      </div>
+
+      <div className="flex justify-center"></div>
     </div>
   );
 };
