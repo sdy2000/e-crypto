@@ -27,6 +27,12 @@ const TopBar = () => {
         });
     };
     fetchTrendingCoins();
+
+    const interval = setInterval(() => {
+      fetchTrendingCoins();
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, [context.currency]);
 
   const items = !loading
