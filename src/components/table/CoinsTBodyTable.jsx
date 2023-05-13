@@ -30,11 +30,11 @@ const CoinsTBodyTable = ({ props }) => {
     };
     fetchCoins();
 
-    const interval = setInterval(() => {
-      fetchCoins();
-    }, 60000);
+    // const interval = setInterval(() => {
+    //   fetchCoins();
+    // }, 60000);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [context.currency, props.perPage, props.page]);
 
   return (

@@ -21,11 +21,11 @@ const CurrencyInfoTable = () => {
     };
     fetchCoins();
 
-    const interval = setInterval(() => {
-      fetchCoins();
-    }, 120000);
+    // const interval = setInterval(() => {
+    //   fetchCoins();
+    // }, 120000);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, []);
   // Log Error
   error && console.log(error);

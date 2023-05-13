@@ -21,11 +21,11 @@ const CoinPage = () => {
     };
     fetchCoins();
 
-    const interval = setInterval(() => {
-      fetchCoins();
-    }, 30000);
+    // const interval = setInterval(() => {
+    //   fetchCoins();
+    // }, 30000);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [id]);
 
   console.log(coin);
