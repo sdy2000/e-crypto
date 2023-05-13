@@ -13,20 +13,29 @@ const CoinsTBodyTable = ({ props }) => {
 
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
+  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   useEffect(() => {
-    axios
-      .get(CoinList(context.currency, props.perPage, props.page))
-      .then((val) => {
-        setCoins(val.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(true);
-      });
-  }, [context.currency, props]);
-  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const fetchCoins = () => {
+      axios
+        .get(CoinList(context.currency, props.perPage, props.page))
+        .then((val) => {
+          setCoins(val.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(true);
+        });
+    };
+    fetchCoins();
+
+    const interval = setInterval(() => {
+      fetchCoins();
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, [context.currency, props.perPage, props.page]);
 
   return (
     <tbody>
@@ -38,6 +47,7 @@ const CoinsTBodyTable = ({ props }) => {
         </>
       )}
       {coins &&
+        !loading &&
         coins.map((coin) => {
           let profit = coin.price_change_percentage_24h >= 0;
           return coin ? (

@@ -9,14 +9,23 @@ const CurrencyInfoTable = () => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    axios
-      .get(CurrencyInfo())
-      .then((data) => {
-        setCurrencyInfo(data.data.data);
-      })
-      .catch((err) => {
-        setError(err);
-      });
+    const fetchCoins = () => {
+      axios
+        .get(CurrencyInfo())
+        .then((data) => {
+          setCurrencyInfo(data.data.data);
+        })
+        .catch((err) => {
+          setError(err);
+        });
+    };
+    fetchCoins();
+
+    const interval = setInterval(() => {
+      fetchCoins();
+    }, 120000);
+
+    return () => clearInterval(interval);
   }, []);
   // Log Error
   error && console.log(error);

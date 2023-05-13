@@ -9,14 +9,23 @@ const CoinPage = () => {
   const [coin, setCoin] = useState();
 
   useEffect(() => {
-    axios
-      .get(SingleCoin(id))
-      .then((data) => {
-        setCoin(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const fetchCoins = () => {
+      axios
+        .get(SingleCoin(id))
+        .then((data) => {
+          setCoin(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    fetchCoins();
+
+    const interval = setInterval(() => {
+      fetchCoins();
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, [id]);
 
   console.log(coin);
