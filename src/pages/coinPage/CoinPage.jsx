@@ -29,7 +29,6 @@ const CoinPage = () => {
     // return () => clearInterval(interval);
   }, [id]);
 
-  console.log(coin);
   return (
     coin && (
       <div className="container flex flex-col">
@@ -40,12 +39,12 @@ const CoinPage = () => {
           </div>
         </div>
 
-        <div className="container flex flex-col  gap-8">
+        <div className="container flex flex-col gap-8">
           <div className="flex flex-col sm:flex-row justify-around">
-            <div className="flex flex-col justify-start items-center sm:w-1/3 sm:border-r-4">
+            <div className="flex flex-col justify-start items-center sm:items-start w-full sm:w-1/3 sm:border-r-2 sm:pr-6">
               <div className="flex flex-col justify-center mb-8">
                 <img src={coin.image.large} alt={coin.id} />
-                <h2 className="text-5xl font-[1000] text-p text-center">
+                <h2 className="text-5xl font-[1000] text-p text-center sm:text-start">
                   {capitalize(coin.id)}
                 </h2>
               </div>
@@ -72,12 +71,13 @@ const CoinPage = () => {
                 </dl>
               </div>
             </div>
-            <div></div>
+            <div className="w-full sm:w-2/3"></div>
           </div>
-          <div className="flex justify-center">
-            <div className="w-2/3">
-              <p> {Parser().parse(coin?.description.en)}.</p>
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <div className="w-full md:w-2/3">
+              <p className="w-full"> {Parser().parse(coin?.description.en)}.</p>
             </div>
+            <div className="w-full md:w-1/3"></div>
           </div>
         </div>
       </div>
