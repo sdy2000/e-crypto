@@ -140,6 +140,15 @@
   .map-top-var a {
     @apply hover:underline;
   }
+  .coin-info {
+    @apply text-center sm:text-start;
+  }
+  .coin-info dt {
+    @apply font-extrabold text-3xl text-p;
+  }
+  .coin-info dd {
+    @apply font-semibold text-3xl text-s;
+  }
 }
 
 /*=============== Syles ===============*/
