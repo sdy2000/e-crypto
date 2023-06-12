@@ -101,7 +101,7 @@ const CoinPage = () => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-0">
-            <div className="w-full mx-8 md:mx-0 md:w-2/3 pr-12">
+            <div className="mx-8 md:mx-0 md:w-2/3 pr-12">
               <p className="w-full text-p">
                 {Parser().parse(coin?.description.en)}.
               </p>
