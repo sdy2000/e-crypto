@@ -3,14 +3,16 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../../services/api/apiFromCoinGeko";
 import { CoinChart, TopMapBar } from "../../components";
-import { capitalize, currencyNumber } from "../../utils";
+import { capitalize, currencyNumber, fixedDate } from "../../utils";
 import { Parser } from "html-to-react";
 import { useStateContext } from "../../store";
+import { faker } from "@faker-js/faker";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
   const { context } = useStateContext();
+  const [recentComment, setRecentComment] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,11 +24,34 @@ const CoinPage = () => {
         console.log(err);
       });
 
+    let comments = [];
+    for (let i = 1; i <= 5; ++i) {
+      let commentInfo = {
+        id: 0,
+        image: "",
+        userName: "",
+        comment: "",
+        date: 0,
+      };
+      commentInfo.id = i;
+      commentInfo.image = faker.image.avatar();
+      commentInfo.userName = faker.internet.userName();
+      commentInfo.comment = faker.lorem.lines();
+      commentInfo.date = faker.date.recent();
+
+      comments.push(commentInfo);
+    }
+
+    setRecentComment(comments);
     // const interval = setInterval(() => {
     //   fetchCoins();
     // }, 30000);
 
     // return () => clearInterval(interval);
+
+    return () => {
+      setCoin();
+    };
   }, [id]);
 
   return (
@@ -75,14 +100,44 @@ const CoinPage = () => {
               <CoinChart coin={coin} />
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-center items-center">
-            <div className="w-full md:w-2/3">
+          <div className="flex flex-col md:flex-row justify-center items-start">
+            <div className="w-full md:w-2/3 pr-12">
               <p className="w-full text-p">
-                {" "}
                 {Parser().parse(coin?.description.en)}.
               </p>
             </div>
-            <div className="w-full md:w-1/3"></div>
+            <div className="w-full md:w-1/3">
+              <div className="bg-t w-full h-full rounded-3xl py-8 px-6">
+                <h3 className="text-p text-3xl font-bold mb-12">Comments</h3>
+                <div className="flex flex-col gap-5">
+                  {recentComment.map((comment) => {
+                    return (
+                      <div
+                        className="flex flex-col gap-3 px-4"
+                        key={comment.id}
+                      >
+                        <div className="flex justify-start items-center gap-2">
+                          <img
+                            className="w-16 h-16 rounded-full"
+                            src={comment.image}
+                            alt={comment.userName}
+                          />
+                          <div className="flex flex-col gap-1">
+                            <h5 className="font-bold text-p text-sm">
+                              {comment.userName}
+                            </h5>
+                            <span className="text-t">
+                              {fixedDate(comment.date)}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="text-s text-sm">{comment.comment}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

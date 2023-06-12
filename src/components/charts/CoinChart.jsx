@@ -45,7 +45,7 @@ const CoinChart = ({ coin }) => {
   }, [coin.id, days, context.currency]);
 
   return (
-    <div>
+    <div className="px-8">
       {!historicalData ? (
         <>
           <ChartLoader />
