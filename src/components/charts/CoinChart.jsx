@@ -14,6 +14,7 @@ import {
   LinearScale,
   PointElement,
 } from "chart.js";
+import { ChartDaysGroupButtons, ChartLoader } from "..";
 
 ChartJS.register(
   Title,
@@ -25,52 +26,10 @@ ChartJS.register(
   PointElement
 );
 
-export const chartDays = [
-  {
-    label: "24 Hours",
-    value: 1,
-  },
-  {
-    label: "30 Days",
-    value: 30,
-  },
-  {
-    label: "3 Months",
-    value: 90,
-  },
-  {
-    label: "1 Year",
-    value: 365,
-  },
-];
-
 const CoinChart = ({ coin }) => {
   const [historicalData, setHistoricalData] = useState();
   const [days, setDays] = useState(1);
   const { context } = useStateContext();
-  const data = {
-    labels: [
-      "Jan",
-      "Feb",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "Septembers",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    datasets: [
-      {
-        labels: "First Dataset",
-        data: [10, 20, 30, 42, 51, 82, 31, 59, 61, 73, 91, 58],
-        borderColor: "#EEBC1D",
-      },
-    ],
-  };
 
   useEffect(() => {
     axios
@@ -89,28 +48,8 @@ const CoinChart = ({ coin }) => {
     <div>
       {!historicalData ? (
         <>
-          <div className="relative w-full h-full items-center dark:bg-gray-800 dark:border-gray-800">
-            <div className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white opacity-40">
-              <Line data={data} />
-            </div>
-            <div className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
-              <div className="border-blue border-t-transparent border-solid animate-spin rounded-full border-blue-400 border-8 h-32 w-32"></div>
-            </div>
-          </div>
-          <div className="flex justify-center items-center gap-6 mt-8">
-            {chartDays.map((day) => (
-              <button
-                className={`${
-                  day.value === days ? "bg-[#EEBC1D] text-black" : "text-s "
-                } font-bold border-2 border-[#EEBC1D] rounded-lg shadow-lg px-6 py-1`}
-                key={day.value}
-                onClick={() => setDays(day.value)}
-                selected={day.value === days}
-              >
-                {day.label}
-              </button>
-            ))}
-          </div>
+          <ChartLoader />
+          <ChartDaysGroupButtons days={days} setDays={setDays} />
         </>
       ) : (
         <>
@@ -141,20 +80,7 @@ const CoinChart = ({ coin }) => {
               ],
             }}
           />
-          <div className="flex justify-center items-center gap-6 mt-8">
-            {chartDays.map((day) => (
-              <button
-                className={`${
-                  day.value === days ? "bg-[#EEBC1D] text-black" : "text-s "
-                } font-bold border-2 border-[#EEBC1D] rounded-lg shadow-lg px-6 py-1`}
-                key={day.value}
-                onClick={() => setDays(day.value)}
-                selected={day.value === days}
-              >
-                {day.label}
-              </button>
-            ))}
-          </div>
+          <ChartDaysGroupButtons days={days} setDays={setDays} />
         </>
       )}
     </div>
