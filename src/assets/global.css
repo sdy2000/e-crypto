@@ -149,6 +149,15 @@
   .coin-info dd {
     @apply font-bold text-lg md:text-xl lg:font-semibold lg:text-3xl text-s;
   }
+
+  /*============================ Footer ============================*/
+  /*--------------- Icons  ----------------*/
+  .social-icons li {
+    @apply text-xl p-2 rounded-full hover:bg-lft dark:hover:bg-dft transition-all duration-300;
+  }
+  .social-icon {
+    @apply text-xl;
+  }
 }
 
 /*=============== Syles ===============*/
