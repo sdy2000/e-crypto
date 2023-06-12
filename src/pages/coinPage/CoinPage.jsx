@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../../services/api/apiFromCoinGeko";
-import { TopMapBar } from "../../components";
+import { CoinChart, TopMapBar } from "../../components";
 import { capitalize, currencyNumber } from "../../utils";
 import { Parser } from "html-to-react";
 import { useStateContext } from "../../store";
@@ -39,16 +39,16 @@ const CoinPage = () => {
           </div>
         </div>
 
-        <div className="container flex flex-col gap-8">
-          <div className="flex flex-col sm:flex-row justify-around">
-            <div className="flex flex-col justify-start items-center sm:items-start w-full sm:w-1/3 sm:border-r-2 sm:pr-6">
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 md:gap-0 md:flex-row justify-around">
+            <div className="flex flex-col justify-start items-center md:items-start w-full md:w-1/3 md:border-r-2 md:pr-6">
               <div className="flex flex-col justify-center mb-8">
                 <img src={coin.image.large} alt={coin.id} />
-                <h2 className="text-5xl font-[1000] text-p text-center sm:text-start">
+                <h2 className="text-5xl font-[1000] text-p text-center md:text-start">
                   {capitalize(coin.id)}
                 </h2>
               </div>
-              <div className="flex flex-col justify-center items-center sm:justify-start sm:items-start gap-4">
+              <div className="flex flex-col justify-center items-center md:justify-start md:items-start gap-4">
                 <dl className="coin-info">
                   <dt>Rank :</dt>
                   <dd>{coin.market_cap_rank}</dd>
@@ -71,11 +71,16 @@ const CoinPage = () => {
                 </dl>
               </div>
             </div>
-            <div className="w-full sm:w-2/3"></div>
+            <div className="w-full md:w-2/3">
+              <CoinChart coin={coin} />
+            </div>
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center">
             <div className="w-full md:w-2/3">
-              <p className="w-full"> {Parser().parse(coin?.description.en)}.</p>
+              <p className="w-full text-p">
+                {" "}
+                {Parser().parse(coin?.description.en)}.
+              </p>
             </div>
             <div className="w-full md:w-1/3"></div>
           </div>

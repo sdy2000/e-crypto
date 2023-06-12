@@ -40,8 +40,8 @@ const Header = () => {
             <div className="flex justify-start items-center gap-1">
               <img
                 className="w-8 h-8 md:w-10 md:h-10"
-                src="./assets/img/e-icon.png"
-                alt="E icon"
+                src="/assets/img/e-icon.png"
+                alt="E-Crypto icon"
               />
               <span className="text-p text-xl md:text-2xl font-bold">
                 Crypto

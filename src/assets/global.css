@@ -141,7 +141,7 @@
     @apply hover:underline;
   }
   .coin-info {
-    @apply text-center sm:text-start;
+    @apply text-center md:text-start;
   }
   .coin-info dt {
     @apply font-bold text-lg md:text-xl lg:font-extrabold lg:text-3xl text-p;

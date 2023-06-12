@@ -30,3 +30,6 @@ export { default as CoinsTablePagination } from "./pagination/CoinsTablePaginati
 
 // // // // Bar // // // //
 export { default as TopMapBar } from "./bar/TopMapBar";
+
+// // // // Charts // // // //
+export { default as CoinChart } from "./charts/CoinChart";
