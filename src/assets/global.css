@@ -153,7 +153,7 @@
   /*============================ Footer ============================*/
   /*--------------- Icons  ----------------*/
   .social-icons li {
-    @apply text-xl p-2 rounded-full hover:bg-lft dark:hover:bg-dft transition-all duration-300;
+    @apply text-3xl p-2 rounded-full hover:bg-lft dark:hover:bg-dft transition-all duration-300;
   }
   .social-icon {
     @apply text-xl;

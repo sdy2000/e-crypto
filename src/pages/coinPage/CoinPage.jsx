@@ -100,13 +100,13 @@ const CoinPage = () => {
               <CoinChart coin={coin} />
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-center items-start">
-            <div className="w-full md:w-2/3 pr-12">
+          <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-0">
+            <div className="w-full mx-8 md:mx-0 md:w-2/3 pr-12">
               <p className="w-full text-p">
                 {Parser().parse(coin?.description.en)}.
               </p>
             </div>
-            <div className="w-full md:w-1/3">
+            <div className="mx-8 md:mx-0 md:w-1/3">
               <div className="bg-t w-full h-full rounded-3xl py-8 px-6">
                 <h3 className="text-p text-3xl font-bold mb-12">Comments</h3>
                 <div className="flex flex-col gap-5">

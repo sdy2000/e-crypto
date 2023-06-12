@@ -19,7 +19,7 @@ const ChartDaysGroupButtons = ({ days, setDays }) => {
   ];
 
   return (
-    <div className="flex justify-center items-center gap-6 mt-8">
+    <div className="flex flex-wrap justify-center items-center gap-6 mt-8">
       {chartDays.map((day) => (
         <button
           className={`${
