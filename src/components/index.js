@@ -22,6 +22,7 @@ export { default as CoinSliderCard } from "./card/CoinSliderCard";
 // / // / // / // Table // / // / // / //
 export { default as CurrencyInfoTable } from "./table/CurrencyInfoTable";
 export { default as CoinsTBodyTable } from "./table/CoinsTBodyTable";
+export { default as CurrencySelectorTable } from "./table/CurrencySelectorTable";
 
 // / // / // / // Loader // / // / // / //
 export { default as CoinsBannerLoader } from "./loader/CoinsBannerLoader";

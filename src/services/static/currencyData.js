@@ -2,7 +2,7 @@ export const currency = [
   {
     id: "USD",
     type: "Fiat",
-    popular: 2000,
+    popular: 9999,
     currency_name: "United States Dollar",
     symbol: "$",
     image: "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg",
@@ -43,7 +43,7 @@ export const currency = [
   {
     id: "EUR",
     type: "Fiat",
-    popular: 2000,
+    popular: 9990,
     currency_name: "Euro",
     symbol: "€",
     image: "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/EUR.svg",
@@ -51,7 +51,7 @@ export const currency = [
   {
     id: "GBP",
     type: "Fiat",
-    popular: 2000,
+    popular: 9900,
     currency_name: "Pound Sterling",
     symbol: "£",
     image: "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/GBP.svg",
@@ -115,7 +115,7 @@ export const currency = [
   {
     id: "BTC",
     type: "Crypto",
-    popular: 2000,
+    popular: 8888,
     currency_name: "Bitcoin",
     symbol: "BTC",
     image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
@@ -123,7 +123,7 @@ export const currency = [
   {
     id: "ETH",
     type: "Crypto",
-    popular: 2000,
+    popular: 8880,
     currency_name: "Ethereum",
     symbol: "ETH",
     image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
