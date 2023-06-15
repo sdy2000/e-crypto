@@ -84,7 +84,7 @@ const Header = () => {
                   onClick={() => {
                     setIsVisibleCurrency(true);
                   }}
-                  className="flex justify-center items-center gap-1 text-p text-sm font-semibold"
+                  className="flex justify-center items-center gap-1 text-p text-sm font-semibold w-20"
                 >
                   <img
                     className="w-5 h-5 rounded-full"
@@ -94,7 +94,7 @@ const Header = () => {
                   <span className="text-sm font-bold text-p">
                     {context.currency}
                   </span>
-                  <AiOutlineCaretDown size={39} />
+                  <AiOutlineCaretDown />
                 </button>
                 <ThemeButton size={23} />
               </div>
