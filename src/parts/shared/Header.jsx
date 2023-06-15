@@ -4,12 +4,12 @@ import {
   CurrencyModal,
   CustomButton1,
   IconButton,
+  SearchInput,
   ThemeButton,
 } from "../../components";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
-import { BiSearch } from "react-icons/bi";
 import { AiFillPieChart, AiFillStar, AiOutlineCaretDown } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
 import { HeaderHiddenBar } from "..";
@@ -144,14 +144,7 @@ const Header = () => {
                   Protfolio
                 </button>
               </div>
-              <div className="flex justify-center items-center px-3 py-1 bg-t rounded-xl shadow-lg h-12">
-                <BiSearch className="text-lfs" size={28} />
-                <input
-                  className="bg-t w-full h-full placeholder:text-lfs ml-1"
-                  type="text"
-                  placeholder="Search"
-                />
-              </div>
+              <SearchInput />
             </div>
           </nav>
           <HeaderHiddenBar

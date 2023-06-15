@@ -78,6 +78,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
           <ul className="hidden-bar flex flex-col justify-center items-start gap-2 text-lfp dark:text-dfp">
             {categores.map((cat) => (
               <li
+                className="ease-in-out duration-300"
                 onClick={() => handleOnClick(cat.id)}
                 key={cat.id}
                 id={cat.id}

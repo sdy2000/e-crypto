@@ -59,6 +59,25 @@
     @apply text-p hover:scale-110 cursor-pointer duration-300 pr-3;
   }
 
+  .search-data-list {
+    @apply flex flex-col py-4;
+  }
+  .search-data-list li {
+    @apply py-4 px-6 hover:bg-p duration-300;
+  }
+  .search-data-list img {
+    @apply rounded-full;
+  }
+  .search-data-list .name {
+    @apply text-p text-lg;
+  }
+  .search-data-list .symbol {
+    @apply text-s font-extrabold;
+  }
+  .search-data-list .market-cap {
+    @apply text-s font-extrabold;
+  }
+
   /*============================ Header ============================*/
   /*--------------- Crypto Info  ----------------*/
   .cyp-info-table {
