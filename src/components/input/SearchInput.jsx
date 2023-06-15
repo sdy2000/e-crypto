@@ -4,6 +4,7 @@ import axios from "axios";
 import { SearchCoin } from "../../services/api/apiFromCoinGeko";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 const getSearchInputModel = () => ({
   text: "",
@@ -13,6 +14,7 @@ const SearchInput = () => {
   const { values, handleInputChange } = useForm(getSearchInputModel);
   const [searchData, setSearchData] = useState();
   const [onFocus, setOnFocus] = useState(false);
+  const [inputHover, setInputHover] = useState(false);
   const searchInput = useRef();
 
   const handleFormSubmit = (e) => {
@@ -32,8 +34,23 @@ const SearchInput = () => {
     }
   };
 
+  const resetInputHandel = () => {
+    searchInput.current.focus();
+    searchInput.current.value = "";
+  };
+
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setInputHover(true)}
+      onMouseLeave={() => setInputHover(false)}
+      onFocus={() => {
+        setOnFocus(true);
+      }}
+      onBlur={() => {
+        if (!inputHover) setOnFocus(false);
+      }}
+    >
       <form
         onSubmit={handleFormSubmit}
         className={`${
@@ -52,21 +69,24 @@ const SearchInput = () => {
           name="text"
           placeholder="Search"
           ref={searchInput}
-          onFocus={() => {
-            setOnFocus(true);
-          }}
-          onBlur={() => {
-            setOnFocus(false);
-          }}
           onChange={(e) => {
             handleInputChange(e);
             handleSearchChange(e);
           }}
           value={values.text}
         />
+        {onFocus && (
+          <button>
+            <IoMdClose
+              onClick={resetInputHandel}
+              className="text-lfs"
+              size={28}
+            />
+          </button>
+        )}
       </form>
       {onFocus && searchData && (
-        <div className="absolute top-12 left-0 bg-t w-96 shadow-lg">
+        <div className="absolute top-12 left-0 bg-t w-96 shadow-lg z-10">
           <ul className="search-data-list">
             {searchData?.map((coin) => (
               <li key={coin.id}>
