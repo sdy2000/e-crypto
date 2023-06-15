@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { currencyNumber } from "../../utils";
+import { useStateContext } from "../../store";
 
 const CoinSliderCard = ({ coin }) => {
+  const { context } = useStateContext();
   let profit = coin.price_change_percentage_24h >= 0;
   return (
     <Link
@@ -19,7 +21,7 @@ const CoinSliderCard = ({ coin }) => {
         </span>
       </div>
       <span className="font-bold text-dfp">
-        {currencyNumber(coin?.current_price.toFixed(2))}
+        {context.symbol} {currencyNumber(coin?.current_price.toFixed(2))}
       </span>
     </Link>
   );

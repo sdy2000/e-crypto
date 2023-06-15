@@ -83,7 +83,8 @@ const CoinsTBodyTable = ({ props }) => {
               </td>
               <td className="t-right">
                 <Link to={`/coin/${coin.id}`} key={coin.id}>
-                  $ {currencyNumber(coin.current_price?.toFixed(2))}
+                  {context.symbol}{" "}
+                  {currencyNumber(coin.current_price?.toFixed(2))}
                 </Link>
               </td>
               <td
@@ -97,10 +98,11 @@ const CoinsTBodyTable = ({ props }) => {
                 </Link>
               </td>
               <td className="t-right  hidden md:table-cell">
-                $ {currencyNumber(coin.market_cap?.toFixed(2))}
+                {context.symbol} {currencyNumber(coin.market_cap?.toFixed(2))}
               </td>
               <td className="t-right  hidden lg:table-cell">
-                $ {currencyNumber(coin.market_cap_change_24h?.toFixed(2))}
+                {context.symbol}{" "}
+                {currencyNumber(coin.market_cap_change_24h?.toFixed(2))}
               </td>
               <td className="t-right  hidden xl:table-cell">
                 {currencyNumber(coin.circulating_supply?.toFixed(0))}{" "}

@@ -1,14 +1,26 @@
 import { IoMdClose } from "react-icons/io";
 import { IconButton } from "..";
-import { useForm } from "../../store";
+import { useForm, useStateContext } from "../../store";
 import { currency } from "../../services/static/currencyData";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const searchBox = () => ({
   searchBox: "",
 });
 
 const CurrencyModal = ({ onClose }) => {
+  const { context, setContext } = useStateContext();
   const { values, handleInputChange } = useForm(searchBox);
+
+  const handleCurrencyChange = (currency, symbol, currency_image) => {
+    setContext({
+      currency: currency,
+      symbol: symbol,
+      currency_image: currency_image,
+    });
+
+    onClose();
+  };
 
   return (
     <div
@@ -53,21 +65,37 @@ const CurrencyModal = ({ onClose }) => {
                   .filter((c) => c.type === "Fiat")
                   .map((currency) => (
                     <li
+                      onClick={() => {
+                        handleCurrencyChange(
+                          currency.id,
+                          currency.symbol,
+                          currency.image
+                        );
+                      }}
                       key={currency.id}
                       className="flex justify-start items-center gap-3 w-52 h-16 pl-3 rounded-2xl cursor-pointer hover:bg-t duration-300"
                     >
                       <img
-                        className="w-5 h-5 rounded-full"
+                        className="w-6 h-6 rounded-full"
                         src={currency.image}
                         alt={currency.currency_name}
                       />
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col gap-1 text-sm">
                         <span className="text-p font-semibold">
                           {currency.currency_name}
                         </span>
-                        <span className="text-s">
-                          {currency.id} - {currency.symbol}
-                        </span>
+                        <div className="flex justify-between items-center">
+                          <span className="text-s ">
+                            {currency.id} - {currency.symbol}
+                          </span>
+                          {context.currency === currency.id ? (
+                            <span className="text-emerald-600">
+                              <AiFillCheckCircle size={25} />
+                            </span>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                       </div>
                     </li>
                   ))}

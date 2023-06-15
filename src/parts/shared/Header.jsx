@@ -11,11 +11,13 @@ import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
 import { AiFillPieChart, AiFillStar, AiOutlineCaretDown } from "react-icons/ai";
-import { HiCurrencyDollar } from "react-icons/hi";
 import { HeaderHiddenBar, HiddenSearchBox } from "..";
 import { Login, SingUp, ForgotPassword } from "../../pages";
+import { useStateContext } from "../../store";
 
 const Header = () => {
+  const { context } = useStateContext();
+
   const [isOpenList, setIsOpenList] = useState(false);
 
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
@@ -84,12 +86,15 @@ const Header = () => {
                   }}
                   className="flex justify-center items-center gap-1 text-p text-sm font-semibold"
                 >
-                  <HiCurrencyDollar
-                    size={20}
-                    className="text-green-500 bg-white rounded-full"
+                  <img
+                    className="w-5 h-5 rounded-full"
+                    src={context.currency_image}
+                    alt={context.currency}
                   />
-                  USD
-                  <AiOutlineCaretDown />
+                  <span className="text-sm font-bold text-p">
+                    {context.currency}
+                  </span>
+                  <AiOutlineCaretDown size={39} />
                 </button>
                 <ThemeButton size={23} />
               </div>

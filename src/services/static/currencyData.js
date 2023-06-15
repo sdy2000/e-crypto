@@ -97,14 +97,6 @@ export const currency = [
     image: "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/TRY.svg",
   },
   {
-    id: "IRR",
-    type: "Fiat",
-    popular: 2000,
-    currency_name: "Iranian Rial",
-    symbol: "IRR",
-    image: "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/IRR.svg",
-  },
-  {
     id: "SAR",
     type: "Fiat",
     popular: 2000,

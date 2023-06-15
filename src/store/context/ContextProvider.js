@@ -11,6 +11,9 @@ export const getFreshContext = () => {
         userId: 0,
         userName: "",
         currency: "USD",
+        symbol: "$",
+        currency_image:
+          "https://s2.coinmarketcap.com/static/cloud/img/fiat-flags/USD.svg",
         language: "English",
         theme: getInitialTheme(),
       })

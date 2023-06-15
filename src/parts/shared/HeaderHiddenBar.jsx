@@ -2,7 +2,6 @@ import { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
-import { HiCurrencyDollar } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import {
   CurrencyModal,
@@ -153,7 +152,13 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
                 setIsVisibleCurrency(true);
               }}
               value={context.currency}
-              icon1={<HiCurrencyDollar size={20} className="text-green-500" />}
+              icon1={
+                <img
+                  className="w-5 h-5 rounded-full"
+                  src={context.currency_image}
+                  alt={context.currency}
+                />
+              }
               icon2={<AiOutlineCaretDown />}
             />
             <CustomButton2
@@ -162,6 +167,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
               styles="w-auto py-[2px]"
             />
           </div>
+
           <div className="mt-12 border-b dark:border-das pb-8 w-full">
             <ul className="flex justify-center items-center gap-2 flex-wrap max-w-xs text-s text-sm font-semibold mx-auto ">
               <li>

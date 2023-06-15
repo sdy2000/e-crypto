@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { CurrencyInfo } from "../../services/api/apiFromCoinGeko";
 import axios from "axios";
 import { currencyNumber } from "../../utils";
+import { useStateContext } from "../../store";
 
 const CurrencyInfoTable = () => {
+  const { context } = useStateContext();
   const [currencyInfo, setCurrencyInfo] = useState([]);
   const [error, setError] = useState();
 
@@ -41,13 +43,13 @@ const CurrencyInfoTable = () => {
         Exchanges: <Link to="">{currencyInfo.markets}</Link>
         Market Cap:{" "}
         <Link to="">
-          $
+          {context.symbol}
           {currencyInfo.total_market_cap?.usd &&
             currencyNumber(currencyInfo.total_market_cap?.usd.toFixed(0))}
         </Link>
         24h Vol:{" "}
         <Link to="">
-          $
+          {context.symbol}
           {currencyInfo.total_volume?.usd &&
             currencyNumber(currencyInfo.total_volume?.usd.toFixed(0))}
         </Link>

@@ -60,7 +60,6 @@ const CoinPage = () => {
         <div className="flex flex-col justify-start">
           <div className="my-8">
             <TopMapBar category={"Coins"} id={id} />
-            <div className="flex justify-start items-center gap-2"></div>
           </div>
         </div>
 
@@ -83,7 +82,8 @@ const CoinPage = () => {
                       coin.market_data.current_price[
                         context.currency?.toLowerCase()
                       ]
-                    )}
+                    )}{" "}
+                    {context.symbol}
                   </dd>
                   <dt>Market Cap :</dt>
                   <dd>
@@ -91,7 +91,8 @@ const CoinPage = () => {
                       coin.market_data.market_cap[
                         context.currency?.toLowerCase()
                       ].toString()
-                    )}
+                    )}{" "}
+                    {context.symbol}
                   </dd>
                 </dl>
               </div>
