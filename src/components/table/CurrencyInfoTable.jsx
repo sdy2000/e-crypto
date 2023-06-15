@@ -29,6 +29,7 @@ const CurrencyInfoTable = () => {
   }, []);
   // Log Error
   error && console.log(error);
+
   return (
     <ul className="cyp-info-table">
       <li>
