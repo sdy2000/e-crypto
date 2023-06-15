@@ -8,7 +8,7 @@ const CoinsTable = () => {
     <>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-12 bg-s py-12">
         <table className="coins-table">
-          <thead className="sticky -top-1 bg-s">
+          <thead className="sticky bg-s -top-1 bg-s">
             <tr>
               <th> </th>
               <th className="t-center ml-1 md:ml-4">#</th>

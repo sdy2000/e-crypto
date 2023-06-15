@@ -48,34 +48,57 @@ const CurrencyModal = ({ onClose }) => {
             </div>
             <div className="sm:px-5 w-full">
               <input
-                className="outline-none bg-t placeholder:text-s w-full h-12 rounded-xl shadow-lg px-6 hover:border border-blue"
+                className="outline-none bg-t placeholder:text-s w-full h-12 rounded-xl shadow-lg px-6 hover:border border-blue text-p text-lg"
                 type="text"
                 placeholder="Search"
+                name="searchBox"
+                id="searchBox"
                 value={values.searchBox}
                 onChange={handleInputChange}
               />
             </div>
           </div>
           <div className="px-2 xs:px-8 w-full flex flex-col gap-8 mt-40">
-            <CurrencySelectorTable
-              handleCurrencyChange={handleCurrencyChange}
-              currency={currency
-                .sort(function (a, b) {
-                  return b.popular - a.popular;
-                })
-                .slice(0, 6)}
-              title="Popular currencies"
-            />
-            <CurrencySelectorTable
-              handleCurrencyChange={handleCurrencyChange}
-              currency={currency.filter((c) => c.type === "Fiat")}
-              title="Fiat currencies"
-            />
-            <CurrencySelectorTable
-              handleCurrencyChange={handleCurrencyChange}
-              currency={currency.filter((c) => c.type === "Crypto")}
-              title="Cryptocurrencies"
-            />
+            {values.searchBox === "" ? (
+              <>
+                <CurrencySelectorTable
+                  handleCurrencyChange={handleCurrencyChange}
+                  currency={currency
+                    .sort(function (a, b) {
+                      return b.popular - a.popular;
+                    })
+                    .slice(0, 6)}
+                  title="Popular currencies"
+                />
+                <CurrencySelectorTable
+                  handleCurrencyChange={handleCurrencyChange}
+                  currency={currency.filter((c) => c.type === "Fiat")}
+                  title="Fiat currencies"
+                />
+                <CurrencySelectorTable
+                  handleCurrencyChange={handleCurrencyChange}
+                  currency={currency.filter((c) => c.type === "Crypto")}
+                  title="Cryptocurrencies"
+                />
+              </>
+            ) : (
+              <CurrencySelectorTable
+                handleCurrencyChange={handleCurrencyChange}
+                currency={currency.filter(
+                  (c) =>
+                    c.id
+                      .toLocaleLowerCase()
+                      .includes(values.searchBox.toLocaleLowerCase()) ||
+                    c.type
+                      .toLocaleLowerCase()
+                      .includes(values.searchBox.toLocaleLowerCase()) ||
+                    c.symbol
+                      .toLocaleLowerCase()
+                      .includes(values.searchBox.toLocaleLowerCase())
+                )}
+                title="Your Search"
+              />
+            )}
           </div>
         </div>
       </div>
