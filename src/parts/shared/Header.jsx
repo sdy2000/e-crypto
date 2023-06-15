@@ -12,7 +12,7 @@ import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
 import { AiFillPieChart, AiFillStar, AiOutlineCaretDown } from "react-icons/ai";
 import { HiCurrencyDollar } from "react-icons/hi";
-import { HeaderHiddenBar } from "..";
+import { HeaderHiddenBar, HiddenSearchBox } from "..";
 import { Login, SingUp, ForgotPassword } from "../../pages";
 
 const Header = () => {
@@ -21,6 +21,7 @@ const Header = () => {
   const [isVisibleLoginBox, setIsVisibleLoginBox] = useState(false);
   const [isVisibleSignUpBox, setIsVisibleSignUpBox] = useState(false);
   const [isVisibleForgotPassBox, setIsVisibleForgotPassBox] = useState(false);
+  const [isVisibleSearchBox, setIsVisibleSearchBox] = useState(false);
 
   const [isVisibleCurrency, setIsVisibleCurrency] = useState(false);
 
@@ -48,7 +49,15 @@ const Header = () => {
               </span>
             </div>
             <div className="flex justify-center items-center gap-1 ">
-              <IconButton value={<FiSearch />} />
+              <IconButton
+                value={
+                  <FiSearch
+                    onClick={() => {
+                      setIsVisibleSearchBox(!isVisibleSearchBox);
+                    }}
+                  />
+                }
+              />
               <ThemeButton />
               <IconButton
                 value={
@@ -174,6 +183,12 @@ const Header = () => {
           )}
           {isVisibleCurrency && (
             <CurrencyModal onClose={() => setIsVisibleCurrency(false)} />
+          )}
+          {isVisibleSearchBox && (
+            <HiddenSearchBox
+              isVisibleSearchBox={isVisibleSearchBox}
+              setIsVisibleSearchBox={setIsVisibleSearchBox}
+            />
           )}
         </header>
       </div>
