@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { SingleCoin } from "../../services/api/apiFromCoinGeko";
-import { CoinChart, TopMapBar } from "../../components";
-import { capitalize, currencyNumber, fixedDate } from "../../utils";
+import { SingleCoin } from "../services/api/apiFromCoinGeko";
+import { CoinChart, TopMapBar } from "../components";
+import { capitalize, currencyNumber, fixedDate } from "../utils";
 import { Parser } from "html-to-react";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../hooks";
 import { faker } from "@faker-js/faker";
 
 const CoinPage = () => {

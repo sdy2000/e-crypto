@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomeLayout } from "./parts";
+import HomeLayout from "./layouts/HomeLayout";
 import { CoinPage, Home } from "./pages";
 
 function App() {

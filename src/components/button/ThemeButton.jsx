@@ -1,7 +1,7 @@
 import React from "react";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { IconButton } from "..";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../../hooks";
 
 const ThemeButton = ({ size = 25 }) => {
   const { context, setContext } = useStateContext();

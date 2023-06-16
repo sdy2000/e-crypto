@@ -16,16 +16,12 @@ export { default as CurrencyModal } from "./modal/CurrencyModal";
 export { default as AccountingInput } from "./input/AccountingInput";
 export { default as SearchInput } from "./input/SearchInput";
 
-// / // / // / // Card // / // / // / //
-export { default as CoinSliderCard } from "./card/CoinSliderCard";
-
 // / // / // / // Table // / // / // / //
 export { default as CurrencyInfoTable } from "./table/CurrencyInfoTable";
 export { default as CoinsTBodyTable } from "./table/CoinsTBodyTable";
 export { default as CurrencySelectorTable } from "./table/CurrencySelectorTable";
 
 // / // / // / // Loader // / // / // / //
-export { default as CoinsBannerLoader } from "./loader/CoinsBannerLoader";
 export { default as CoinsTableLoader } from "./loader/CoinsTableLoader";
 export { default as ChartLoader } from "./loader/ChartLoader";
 

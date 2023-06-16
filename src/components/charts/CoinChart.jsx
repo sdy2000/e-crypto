@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../../hooks";
 import { useEffect } from "react";
 import axios from "axios";
 import { HistoricalChart } from "../../services/api/apiFromCoinGeko";

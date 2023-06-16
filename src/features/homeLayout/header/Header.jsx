@@ -6,14 +6,15 @@ import {
   IconButton,
   SearchInput,
   ThemeButton,
-} from "../../components";
+} from "../../../components";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { BsList } from "react-icons/bs";
 import { AiFillPieChart, AiFillStar, AiOutlineCaretDown } from "react-icons/ai";
-import { HeaderHiddenBar, HiddenSearchBox } from "..";
-import { Login, SingUp, ForgotPassword } from "../../pages";
-import { useStateContext } from "../../store";
+import { HiddenSearchBox } from "../../shared";
+import { HeaderHiddenBar } from "../";
+import { Login, SingUp, ForgotPassword } from "../../../pages";
+import { useStateContext } from "../../../hooks";
 
 const Header = () => {
   const { context } = useStateContext();

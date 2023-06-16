@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CurrencyInfo } from "../../services/api/apiFromCoinGeko";
 import axios from "axios";
 import { currencyNumber } from "../../utils";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../../hooks";
 
 const CurrencyInfoTable = () => {
   const { context } = useStateContext();

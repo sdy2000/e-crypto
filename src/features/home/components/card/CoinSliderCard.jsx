@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { currencyNumber } from "../../utils";
-import { useStateContext } from "../../store";
+import { currencyNumber } from "../../../../utils";
+import { useStateContext } from "../../../../hooks";
 
 const CoinSliderCard = ({ coin }) => {
   const { context } = useStateContext();

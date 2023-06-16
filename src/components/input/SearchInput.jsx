@@ -1,5 +1,5 @@
 import { BiSearch } from "react-icons/bi";
-import { useForm } from "../../store";
+import { useForm } from "../../hooks";
 import axios from "axios";
 import { SearchCoin } from "../../services/api/apiFromCoinGeko";
 import { useRef, useState } from "react";

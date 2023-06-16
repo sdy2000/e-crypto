@@ -1,6 +1,6 @@
 import { AiOutlineStar } from "react-icons/ai";
 import { CoinsTableLoader } from "..";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../../hooks";
 import { useState } from "react";
 import { useEffect } from "react";
 import { CoinList } from "../../services/api/apiFromCoinGeko";

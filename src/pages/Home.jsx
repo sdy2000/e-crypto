@@ -1,4 +1,4 @@
-import { CoinsTable, TopBar } from "../../parts";
+import { CoinsTable, TopBar } from "../features/home";
 
 const Home = () => {
   return (

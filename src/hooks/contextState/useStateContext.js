@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { stateContext } from "../context/ContextProvider";
+import { stateContext } from "../../context/ContextProvider";
 
 const useStateContext = () => {
   const { context, setContext } = useContext(stateContext);

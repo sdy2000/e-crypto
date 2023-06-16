@@ -1,7 +1,7 @@
 import { IoMdClose } from "react-icons/io";
 import { CurrencySelectorTable, IconButton } from "..";
-import { useForm, useStateContext } from "../../store";
-import { currency } from "../../services/static/currencyData";
+import { useForm, useStateContext } from "../../hooks";
+import { currency } from "../../data/static/currencyData";
 
 const searchBox = () => ({
   searchBox: "",

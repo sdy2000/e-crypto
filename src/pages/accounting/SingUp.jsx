@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AccountingInput, AccountingModal } from "../../components";
-import useForm from "../../store/hooks/useForm";
+import { useForm } from "../../hooks";
 
 const getFreshLoginModel = () => ({
   email: "",

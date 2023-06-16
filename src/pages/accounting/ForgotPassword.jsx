@@ -1,6 +1,6 @@
 import { AccountingInput, AccountingModal, IconButton } from "../../components";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { useForm } from "../../store";
+import { useForm } from "../../hooks";
 
 const getFreshLoginModel = () => ({
   email: "",

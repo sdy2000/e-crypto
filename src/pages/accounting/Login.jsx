@@ -1,5 +1,5 @@
 import { AccountingInput, AccountingModal } from "../../components";
-import { useForm } from "../../store";
+import { useForm } from "../../hooks";
 
 const getFreshLoginModel = () => ({
   email: "",

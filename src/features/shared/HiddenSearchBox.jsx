@@ -1,6 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
-import { useForm } from "../../store";
+import { useForm } from "../../hooks";
 import { useRef, useState } from "react";
 import axios from "axios";
 import { SearchCoin } from "../../services/api/apiFromCoinGeko";

@@ -10,10 +10,10 @@ import {
   IconButton,
   SocialBox,
   ThemeButton,
-} from "../../components";
-import { headerData } from "../../services/fake/fakeData";
-import { Login, SingUp, ForgotPassword } from "../../pages";
-import { useStateContext } from "../../store";
+} from "../../../components";
+import { headerData } from "../../../data/fake/fakeData";
+import { Login, SingUp, ForgotPassword } from "../../../pages";
+import { useStateContext } from "../../../hooks";
 
 const categores = headerData;
 

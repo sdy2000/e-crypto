@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SocialBox } from "../../components";
+import { SocialBox } from "../../../components";
 
 const Footer = () => {
   return (

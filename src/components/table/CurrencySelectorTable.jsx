@@ -1,5 +1,5 @@
 import { AiFillCheckCircle } from "react-icons/ai";
-import { useStateContext } from "../../store";
+import { useStateContext } from "../../hooks";
 
 const CurrencySelectorTable = ({ handleCurrencyChange, currency, title }) => {
   const { context } = useStateContext();

@@ -1,47 +1,28 @@
-import axios from "axios";
 import WaterWave from "react-water-wave";
-import { TrendingCoins } from "../../services/api/apiFromCoinGeko";
-import { useStateContext } from "../../store";
-import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
-import { CoinSliderCard, CoinsBannerLoader } from "../../components";
+import { CoinSliderCard, CoinsBannerLoader } from "./components";
+import useGetTrendingCoins from "./hooks/useGetTrendingCoins";
 
 const TopBar = () => {
-  const { context } = useStateContext();
+  const { trending, loading } = useGetTrendingCoins();
 
-  const [trending, setTrending] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // ? Create CoinBannerLoader List
+  const renderCoinsBannerLoaders = () => {
+    const loaders = [];
 
-  useEffect(() => {
-    const fetchTrendingCoins = async () => {
-      await axios
-        .get(TrendingCoins(context.currency))
-        .then((val) => {
-          setTrending(val.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(true);
-        });
-    };
-    fetchTrendingCoins();
+    for (let i = 0; i < 9; i++) {
+      loaders.push(<CoinsBannerLoader key={i} />);
+    }
 
-    // const interval = setInterval(() => {
-    //   fetchTrendingCoins();
-    // }, 30000);
+    return loaders;
+  };
 
-    // return () => clearInterval(interval);
-  }, [context.currency]);
-
+  // ? Get Value For AliceCarouse Component
   const items = !loading
     ? trending.map((coin) => {
         return coin && <CoinSliderCard coin={coin} />;
       })
-    : x.map(() => {
-        return <CoinsBannerLoader />;
-      });
+    : renderCoinsBannerLoaders();
 
   return (
     <div className="w-full h-72">
