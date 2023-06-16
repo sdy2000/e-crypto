@@ -18,15 +18,10 @@ export { default as SearchInput } from "./input/SearchInput";
 
 // / // / // / // Table // / // / // / //
 export { default as CurrencyInfoTable } from "./table/CurrencyInfoTable";
-export { default as CoinsTBodyTable } from "./table/CoinsTBodyTable";
 export { default as CurrencySelectorTable } from "./table/CurrencySelectorTable";
 
 // / // / // / // Loader // / // / // / //
-export { default as CoinsTableLoader } from "./loader/CoinsTableLoader";
 export { default as ChartLoader } from "./loader/ChartLoader";
-
-// / // / // / // Pagination // / // / // / //
-export { default as CoinsTablePagination } from "./pagination/CoinsTablePagination";
 
 // / // / // / // Bar // / // / // / //
 export { default as TopMapBar } from "./bar/TopMapBar";

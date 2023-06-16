@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CurrencyInfo } from "../../services/api/apiFromCoinGeko";
+import { CurrencyInfo } from "../../services/apiFromCoinGeko";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";

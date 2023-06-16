@@ -1,51 +1,28 @@
 import { AiOutlineStar } from "react-icons/ai";
 import { CoinsTableLoader } from "..";
-import { useStateContext } from "../../hooks";
-import { useState } from "react";
-import { useEffect } from "react";
-import { CoinList } from "../../services/api/apiFromCoinGeko";
-import { capitalize, currencyNumber } from "../../utils";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import useGetCoinList from "../../hooks/useGetCoinList";
+import { capitalize, currencyNumber } from "../../../../utils";
+import { useStateContext } from "../../../../hooks";
 
 const CoinsTBodyTable = ({ props }) => {
   const { context } = useStateContext();
+  const { coins, loading } = useGetCoinList(props.perPage, props.page);
 
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const x = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // ? Create CoinsTableLoader List
+  const renderCoinsTableLoader = () => {
+    const loaders = [];
 
-  useEffect(() => {
-    const fetchCoins = () => {
-      axios
-        .get(CoinList(context.currency, props.perPage, props.page))
-        .then((val) => {
-          setCoins(val.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(true);
-        });
-    };
-    fetchCoins();
+    for (let i = 0; i < 9; i++) {
+      loaders.push(<CoinsTableLoader key={i} />);
+    }
 
-    // const interval = setInterval(() => {
-    //   fetchCoins();
-    // }, 60000);
-
-    // return () => clearInterval(interval);
-  }, [context.currency, props.perPage, props.page]);
+    return loaders;
+  };
 
   return (
     <tbody>
-      {loading && (
-        <>
-          {x.map((num, idx) => (
-            <CoinsTableLoader key={idx} />
-          ))}
-        </>
-      )}
+      {loading && <>{renderCoinsTableLoader()}</>}
       {coins &&
         !loading &&
         coins.map((coin) => {
@@ -110,6 +87,7 @@ const CoinsTBodyTable = ({ props }) => {
               </td>
             </tr>
           ) : (
+            // ! If the coin (One row) is not loaded, this code will compile
             <CoinsTableLoader />
           );
         })}
