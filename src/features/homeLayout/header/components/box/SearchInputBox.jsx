@@ -1,16 +1,16 @@
-import { BiSearch } from "react-icons/bi";
-import { useForm } from "../../hooks";
 import axios from "axios";
-import { SearchCoin } from "../../services/api/apiFromCoinGeko";
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { BiSearch } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
+import { useRef, useState } from "react";
+import { HeaderSearchBoxList } from "..";
+import { SearchCoin } from "../../services/apiFromCoinGeko";
+import { useForm } from "../../../../../hooks";
 
 const getSearchInputModel = () => ({
   text: "",
 });
 
-const SearchInput = () => {
+const SearchInputBox = () => {
   const { values, handleInputChange } = useForm(getSearchInputModel);
   const [searchData, setSearchData] = useState();
   const [onFocus, setOnFocus] = useState(false);
@@ -85,27 +85,8 @@ const SearchInput = () => {
           </button>
         )}
       </form>
-      {onFocus && searchData && (
-        <div className="absolute top-12 left-0 bg-t w-96 shadow-lg z-10">
-          <ul className="search-data-list">
-            {searchData?.map((coin) => (
-              <li key={coin.id}>
-                <Link to={`/coin/${coin.id}`}>
-                  <div className="flex justify-between items-center">
-                    <div className="flex justify-center items-center gap-4">
-                      <img src={coin.thumb} alt={coin.name} />
-                      <span className="name">{coin.name}</span>
-                      <span className="symbol">{coin.symbol}</span>
-                    </div>
-                    <span className="market-cap">#{coin.market_cap_rank}</span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {onFocus && searchData && <HeaderSearchBoxList searchData={searchData} />}
     </div>
   );
 };
-export default SearchInput;
+export default SearchInputBox;

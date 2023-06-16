@@ -4,8 +4,6 @@ import { IoMdClose } from "react-icons/io";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import {
-  CurrencyModal,
-  CustomButton1,
   CustomButton2,
   IconButton,
   SocialBox,
@@ -14,6 +12,7 @@ import {
 import { headerData } from "../../../data/fake/fakeData";
 import { Login, SingUp, ForgotPassword } from "../../../pages";
 import { useStateContext } from "../../../hooks";
+import { AccountHeadBtn, CurrencyModal } from "./components";
 
 const categores = headerData;
 
@@ -124,7 +123,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
             ))}
           </ul>
           <div className="flex flex-col md:flex-row gap-3 px-3 my-8">
-            <CustomButton1
+            <AccountHeadBtn
               onClick={() => {
                 setIsVisibleSignUpBox(true);
               }}
@@ -132,7 +131,7 @@ const HeaderHiddenBar = ({ isOpenList, setIsOpenList }) => {
               value="Create an account"
               styles="bg-blue hover:bg-lblue"
             />
-            <CustomButton1
+            <AccountHeadBtn
               onClick={() => {
                 setIsVisibleLoginBox(true);
               }}

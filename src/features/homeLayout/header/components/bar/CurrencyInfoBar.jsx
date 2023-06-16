@@ -1,34 +1,12 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CurrencyInfo } from "../../services/api/apiFromCoinGeko";
-import axios from "axios";
-import { currencyNumber } from "../../utils";
-import { useStateContext } from "../../hooks";
+import { currencyNumber } from "../../../../../utils";
+import { useStateContext } from "../../../../../hooks";
+import { useGetForCurrencyInfoBar } from "../../hooks/useGetForCurrencyInfoBar";
 
-const CurrencyInfoTable = () => {
+const CurrencyInfoBar = () => {
   const { context } = useStateContext();
-  const [currencyInfo, setCurrencyInfo] = useState([]);
-  const [error, setError] = useState();
+  const { currencyInfo, error } = useGetForCurrencyInfoBar();
 
-  useEffect(() => {
-    const fetchCoins = () => {
-      axios
-        .get(CurrencyInfo())
-        .then((data) => {
-          setCurrencyInfo(data.data.data);
-        })
-        .catch((err) => {
-          setError(err);
-        });
-    };
-    fetchCoins();
-
-    // const interval = setInterval(() => {
-    //   fetchCoins();
-    // }, 120000);
-
-    // return () => clearInterval(interval);
-  }, []);
   // Log Error
   error && console.log(error);
 
@@ -62,4 +40,4 @@ const CurrencyInfoTable = () => {
     </ul>
   );
 };
-export default CurrencyInfoTable;
+export default CurrencyInfoBar;

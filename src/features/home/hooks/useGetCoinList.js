@@ -22,6 +22,7 @@ export default function useGetCoinList({ perPage, page }) {
         setLoading(true);
       });
 
+    // ! Update CoinList each 60 seconds
     // const interval = setInterval(() => {
     //   fetchCoins();
     // }, 60000);
