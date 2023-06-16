@@ -1,7 +1,7 @@
 import { AiFillPieChart, AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { barList } from "../../data/static/barList";
 import { SearchInputBox } from "..";
+import { barList } from "../../data/barList";
 
 const XLNavbar = () => {
   return (
